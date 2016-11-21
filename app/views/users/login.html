@@ -1,0 +1,14 @@
+
+<h1>Login</h1>
+
+<div class="login-form">
+
+  <%= form_tag '/session', method: 'post' do%>
+
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <button>Login</button>
+
+  <% end %>
+
+</div>
