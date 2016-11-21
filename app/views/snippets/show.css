@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+section {
+  border: solid 1px black;
+  float: left;
+}
+
+section.sidebar {
+  width: 150px;
+  height: 100vh;
+}
+
+section.header {
+  width: calc(100vw - 150px);
+  height: 20px;
+
+}
+
+section.snippet {
+  width: calc(100vw - 150px);
+  height: calc(100vh - 20px);
+  overflow: scroll;
+}
+
+div.number-column {
+  width: 20px;
+  float: left;
+}
+
+div.snippet-body {
+  float: left;
+  
+}
+
+footer {
+  border-top: solid 1px black;
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  background-color: grey;
+}
