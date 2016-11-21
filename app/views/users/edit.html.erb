@@ -1,0 +1,13 @@
+<%= form_tag user_path , method: 'patch' do %>
+
+  <input id="name" name="name" type="text" placeholder="Username" value="<%= @user.name %>">
+
+  <input id="email" name="email" type="email" placeholder="Email Address" value="<%= @user.email %>">
+
+  <input id="username" name="username" type="text" placeholder="Username" value="<%= @user.username %>">
+
+  <input id="password" name="password" type="password" placeholder="Password" >
+
+  <button >Submit</button>
+
+  <% end %>
