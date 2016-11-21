@@ -1,0 +1,2 @@
+module AttemptHelper
+end
