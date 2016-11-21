@@ -72,11 +72,13 @@ div.snippet-row {
 
 div.snippet-body {
   height: 100%;
-  width: calc(100% - 40px);
+  width: calc(100% - 55px);
   float: left;
   padding: 5px;
   color: grey;
-  word-wrap: break-word;
+  /*word-wrap: break-word;*/
+  word-break: break-all;
+  /*overflow: hidden;*/
 }
 
 .snippet span {
