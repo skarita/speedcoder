@@ -5,15 +5,15 @@
 
     <% if logged_in? %>
       <h2 class="create-acc-link"> <%= current_user.username %></h2>
-    <% else %>
-      <a class="create-acc-link" href="/users/new">Create a Free Account</a>
-    <% end %>
       <div class="dropdown-menu">
         <a href="/snippets/new">New Snippet</a>
         <a href="">My Snippets</a>
         <a href="">Edit Account</a>
         <a href="">Logout</a>
       </div>
+    <% else %>
+      <a  href="/users/new" class="create-acc-link">Create a Free Account</a>
+    <% end %>
   </header>
 
 
