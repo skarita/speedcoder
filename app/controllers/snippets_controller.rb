@@ -22,9 +22,9 @@ class SnippetsController < ApplicationController
     snippet.description = params[:description]
     snippet.name = params[:name]
     snippet.user_id = session[:user_id]
-    snippet.body = params[:body]
+    snippet.body = params[:body].strip
     snippet.language = params[:language]
-    snippet.word_count = params[:word_count]
+    snippet.word_count = snippet.body.scan(/[[:alpha:]]+/).count
 
     if snippet.save
       redirect_to "/snippets"
