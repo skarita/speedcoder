@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( snippets/show.css )
 Rails.application.config.assets.precompile += %w( snippets/show.js )
+Rails.application.config.assets.precompile += %w( users/show.js )
