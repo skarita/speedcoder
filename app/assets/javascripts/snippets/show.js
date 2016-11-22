@@ -6,39 +6,39 @@ entities = new Entities();
 
 var snippet = '<SCRIPT LANGUAGE="JavaScript">\n     var now = new Date();\n\nvar days = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");\n\nvar date = ((now.getDate()<10) ? "0" : "")+ now.getDate();\n\nfunction fourdigits(number) {\n\n  return (number < 1000) ? number + 1900 : number;\n\n                }\n\ntoday =  days[now.getDay()] + ", " +\n         months[now.getMonth()] + " " +\n         date + ", " +\n         (fourdigits(now.getYear())) ;\n\ndocument.write(today);\n</script>';
 
-var row = 1;
-$span = $('<span>').html(row + "<br>");
-$(".snippet-row").append($span);
-for (var i = 0; i < snippet.length; i++) {
-  if (snippet[i] != "\n") {
 
-    $span = $('<span>').html(entities.encode(snippet[i]));
-    if (snippet[i] === " ") {
-      $span = $('<span>').html("&nbsp;");
-    }
-  }
-  else {
-    row++;
-    $span = $('<span>').html(row + "<br>");
-    $(".snippet-row").append($span);
+// var row = 1;
+// $span = $('<span>').html(row + "<br>");
+// $(".snippet-row").append($span);
+// for (var i = 0; i < snippet.length; i++) {
+//   if (snippet[i] != "\n") {
 
-    $span = $('<span>').html("&nbsp;<br>");
-    $span.addClass('return');
-  }
-  $(".snippet-body").append($span);
-}
-$span = $('<span>').html(" <br>");
-$(".snippet-body").append($span);
+//     $span = $('<span>').html(entities.encode(snippet[i]));
+//     if (snippet[i] === " ") {
+//       $span = $('<span>').html("&nbsp;");
+//     }
+//   }
+//   else {
+//     row++;
+//     $span = $('<span>').html(row + "<br>");
+//     $(".snippet-row").append($span);
+
+//     $span = $('<span>').html("&nbsp;<br>");
+//     $span.addClass('return');
+//   }
+//   $(".snippet-body").append($span);
+// }
+// $span = $('<span>').html(" <br>");
+// $(".snippet-body").append($span);
 
 $(".snippet-body span:first").addClass("lightblue");
+// $(".snippet").fadeIn();
 
-$(".snippet").fadeIn();
 
 var count = 0;
 var error_count = 0;
 
 $("body").keydown(function(event) {
-  // disable tab key
   if (event.keyCode === 9) {
     event.preventDefault();
   }
@@ -62,6 +62,11 @@ $("body").keydown(function(event) {
 
 
 $("body").keypress(function(event) {
+  // disable tab key and spacebar
+  if (event.keyCode === 32) {
+    event.preventDefault();
+  }
+
   var keyCode = event.keyCode;
 
     var input_char = String.fromCharCode(keyCode);
@@ -86,7 +91,8 @@ $("body").keypress(function(event) {
       $(".snippet-body span:eq(" + count + ")").addClass("black");
       count++;
       if (event.keyCode === 13) {
-        while ( $(".snippet-body span:eq(" + count + ")").html() === "&nbsp;" ) {
+        while ( $(".snippet-body span:eq(" + count + ")").html() === "&nbsp;" ||
+        $(".snippet-body span:eq(" + count + ")").html() === "&nbsp;<br>" ) {
           count ++;
         }
       }

@@ -1,5 +1,7 @@
   <%= stylesheet_link_tag "snippets/show" %>
 
+  <input type="hidden" name="snippet_id" value="<%= params[:id] %>">
+
   <section class="sidebar">
     <h1 class="page-title">Speedcoder</h1>
 
@@ -56,8 +58,8 @@
   </section>
 
   <section class="snippet">
-    <div class="snippet-row"></div>
-    <div class="snippet-body"></div>
+    <div class="snippet-row"><% for i in 1..@array.count("\n")+1 do %><span><%= i.to_s %><br></span><% end %></div>
+    <div class="snippet-body"><% @array.each do |char| %><span><% if char == "\n" %>&nbsp;<br><% elsif char == " " %>&nbsp;<% else %><%= char %><% end %></span><% end %></div>
     <div style="clear: both;"></div>
   </section>
 
