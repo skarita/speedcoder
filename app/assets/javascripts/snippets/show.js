@@ -1,68 +1,71 @@
-console.log("I'm alive");
-
 var Entities = require('html-entities').XmlEntities;
  
 entities = new Entities();
 
-var snippet = '<SCRIPT LANGUAGE="JavaScript">\n     var now = new Date();\n\nvar days = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");\n\nvar date = ((now.getDate()<10) ? "0" : "")+ now.getDate();\n\nfunction fourdigits(number) {\n\n  return (number < 1000) ? number + 1900 : number;\n\n                }\n\ntoday =  days[now.getDay()] + ", " +\n         months[now.getMonth()] + " " +\n         date + ", " +\n         (fourdigits(now.getYear())) ;\n\ndocument.write(today);\n</script>';
-
-
-// var row = 1;
-// $span = $('<span>').html(row + "<br>");
-// $(".snippet-row").append($span);
-// for (var i = 0; i < snippet.length; i++) {
-//   if (snippet[i] != "\n") {
-
-//     $span = $('<span>').html(entities.encode(snippet[i]));
-//     if (snippet[i] === " ") {
-//       $span = $('<span>').html("&nbsp;");
-//     }
-//   }
-//   else {
-//     row++;
-//     $span = $('<span>').html(row + "<br>");
-//     $(".snippet-row").append($span);
-
-//     $span = $('<span>').html("&nbsp;<br>");
-//     $span.addClass('return');
-//   }
-//   $(".snippet-body").append($span);
-// }
-// $span = $('<span>').html(" <br>");
-// $(".snippet-body").append($span);
-
-$(".snippet-body span:first").addClass("lightblue");
-// $(".snippet").fadeIn();
-
+var snippet_length = $('input[name="snippet_length"]').val();
 
 var count = 0;
 var error_count = 0;
 
+// Highlight the first character
+$(".snippet-body span:first").addClass("lightblue");
+
+function $char_elem(index) {
+  return $(".snippet-body span:eq(" + index + ")");
+}
+
+// Skip white spaces and find next char
+function prev_char_count(count) {
+  count--;
+  var count_init = count;
+  while ( $char_elem(count).html() === "&nbsp;" ||
+    $char_elem(count).html() === "&nbsp;<br>" ) {
+    count--;
+    if ($char_elem(count).html() === "&nbsp;<br>" ) {
+      return count;
+    }
+  }
+  return count_init;
+}
+
+// Skip white spaces and find next char
+function next_char_count(count) {
+  count++;
+  while ($char_elem(count).html() === "&nbsp;") {
+    count++;
+  }
+  return count;
+}
+
+
 $("body").keydown(function(event) {
+  // disable tab key
   if (event.keyCode === 9) {
     event.preventDefault();
   }
 
   // backspace key
   if (event.keyCode === 8) {
-    $(".snippet-body span:eq(" + count + ")").removeClass("lightblue pink red");
-    if (count > 0) {count--;}
-    if (error_count > 0) {error_count--;}
+    $char_elem(count).removeClass("lightblue pink red");
+    if (count > 0) {
+      count = prev_char_count(count, -1);
+    }
     if (error_count > 0) {
-      $(".snippet-body span:eq(" + count + ")").addClass("pink");
+      error_count = prev_char_count(error_count, -1);
+    }
+    if (error_count > 0) {
+      $char_elem(count).addClass("pink");
     }
     else {
-      $(".snippet-body span:eq(" + count + ")").addClass("lightblue");
-      $(".snippet-body span:eq(" + count + ")").removeClass("red");
+      $char_elem(count).addClass("lightblue");
+      $char_elem(count).removeClass("red");
     }
-    $(".snippet-body span:eq(" + count + ")").removeClass("black");
+    $char_elem(count).removeClass("black");
   }
 });
 
-
-
 $("body").keypress(function(event) {
-  // disable tab key and spacebar
+  // disable spacebar
   if (event.keyCode === 32) {
     event.preventDefault();
   }
@@ -74,7 +77,7 @@ $("body").keypress(function(event) {
       input_char = "<br>";
     }
 
-    var char = $(".snippet-body span:eq(" + count + ")").html();
+    var char = $char_elem(count).html();
 
     if (char === "&nbsp;<br>") {
       char = "<br>";
@@ -86,69 +89,28 @@ $("body").keypress(function(event) {
       char = entities.decode(char);
     }
 
-    if (input_char === char && error_count === 0 && count < snippet.length) {
-      $(".snippet-body span:eq(" + count + ")").removeClass("lightblue pink red");
-      $(".snippet-body span:eq(" + count + ")").addClass("black");
-      count++;
-      if (event.keyCode === 13) {
-        while ( $(".snippet-body span:eq(" + count + ")").html() === "&nbsp;" ||
-        $(".snippet-body span:eq(" + count + ")").html() === "&nbsp;<br>" ) {
-          count ++;
-        }
+    if (input_char === char && error_count === 0 && count < snippet_length) {
+      $char_elem(count).removeClass("lightblue pink red");
+      $char_elem(count).addClass("black");
+      if (event.keyCode === 13 && $char_elem(count).html() === "&nbsp;<br>") {
+        count = next_char_count(count, 1);
+      }
+      else {
+        count++;
       }
       
-      $(".snippet-body span:eq(" + count + ")").addClass("lightblue");
+      $char_elem(count).addClass("lightblue");
     }
-    else if (count < snippet.length) {
-      $(".snippet-body span:eq(" + count + ")").removeClass("lightblue pink").addClass("red");
-      count++;
-      error_count++;
-      $(".snippet-body span:eq(" + count + ")").addClass("pink");
-    }
-});
-
-$('.load-btn').click(function(event) {
-  hi();
-  console.log('hi');
-});
-
-function hi() {
-  $(".snippet-row").empty();
-  $(".snippet-body").empty();
-  var test = $('textarea').val();
-  console.log('hi');
-  console.log(test);
-
-  snippet = test;
-
-  var row = 1;
-  $span = $('<span>').html(row + "<br>");
-  $(".snippet-row").append($span);
-  for (var i = 0; i < snippet.length; i++) {
-    if (snippet[i] != "\n") {
-
-      $span = $('<span>').html(entities.encode(snippet[i]));
-      if (snippet[i] === " ") {
-        $span = $('<span>').html("&nbsp;");
+    else if (count < snippet_length) {
+      $char_elem(count).removeClass("lightblue pink").addClass("red");
+      if (event.keyCode === 13 && $char_elem(count).html() === "&nbsp;<br>") {
+        count = next_char_count(count);
+        error_count = next_char_count(error_count);
       }
+      else {
+        count++;
+        error_count++;
+      }
+      $char_elem(count).addClass("pink");
     }
-    else {
-      row++;
-      $span = $('<span>').html(row + "<br>");
-      $(".snippet-row").append($span);
-
-      $span = $('<span>').html("&nbsp;<br>");
-      $span.addClass('return');
-    }
-    $(".snippet-body").append($span);
-  }
-  $span = $('<span>').html(" <br>");
-  $(".snippet-body").append($span);
-
-  $(".snippet-body span:first").addClass("lightblue");
-
-  $(".snippet").fadeIn();
-
-  count = 0;
-  error_count = 0;
-}
+});
