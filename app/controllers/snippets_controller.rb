@@ -10,9 +10,7 @@ class SnippetsController < ApplicationController
   def show
     @snippet = Snippet.find(params[:id])
     body = @snippet.body.delete("\r")
-    @array = body.split("").map do |char|
-      char = char
-    end
+    @array = body.split("").push(" ")
     # raise
   end
 
