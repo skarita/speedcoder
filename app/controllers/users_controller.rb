@@ -4,6 +4,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if !session[:user_id] && !!@user
+      redirect_to '/'
+    end
+    @snippets = Snippet.where(user_id: @user.id)
+    @attempts = Attempt.where(user_id: @user.id)
+
   end
 
   def new
