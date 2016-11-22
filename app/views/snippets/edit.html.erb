@@ -1,0 +1,15 @@
+<%= form_tag snippet_path , method: 'patch' do %>
+
+  <input id="name" name="name" type="text" value="<%= @snippet.name %>" placeholder="Snippet Name" >
+
+  <textarea id="description" name="description" placeholder="Description" rows="8" cols="40"><%= @snippet.description %></textarea>
+
+  <select id="language" name="language" value="<%= @snippet.language %>">
+    <option value="javascript">JavaScript</option>
+  </select>
+
+  <textarea id="snippet-body" name="body" rows="40" cols="40" placeholder="Snippet Code"><%= @snippet.body %></textarea>
+
+  <button >Update</button>
+
+<% end %>

@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   delete '/session', to: 'session#destroy'
 
   get '/', to: 'users#home'
-
+  get '/snippet/index', to: 'snippets#index'
 end
