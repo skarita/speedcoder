@@ -1,7 +1,7 @@
   <%= stylesheet_link_tag "snippets/show" %>
 
   <input type="hidden" name="snippet_id" value="<%= params[:id] %>">
-  <input type="hidden" name="snippet_length" value="<%= @array.length %>">
+  <input type="hidden" name="snippet_length" value="<%= @array.length-1 %>">
 
   <section class="sidebar">
     <h1 class="page-title">Speedcoder</h1>
@@ -48,7 +48,6 @@
         <td>90wpm</td>
       </tr>
     </table>
-
   </section>
 
   <section class="header">
@@ -59,11 +58,21 @@
     <div class="snippet-row"><% for i in 1..@array.count("\n")+1 do %><span><%= i.to_s %><br></span><% end %></div>
     <div class="snippet-body"><% @array.each do |char| %><span><% if char == "\n" %>&nbsp;<br><% elsif char == " " %>&nbsp;<% else %><%= char %><% end %></span><% end %></div>
     <div style="clear: both;"></div>
+
+    <!-- The Modal -->
+    <div id="winModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>WPM: <span></span></p>
+        <a href="/snippets/<%= params[:id] %>">Play again</a>
+      </div>
+
+    </div>
   </section>
 
   <section class="footer">
     <div class="timer">
-      <p>Timer: <span>0:14</span></p>
+      <p>Timer: <span>0:00</span></p>
     </div>
     <div class="proglang">
       <p>Javascript</p>

@@ -52,7 +52,6 @@ section.header {
 }
 
 section.snippet {
-  /*display: none;*/
   width: calc(100vw - 200px);
   /*height = 100vh - header - footer*/
   height: calc(100% - 30px - 20px);
@@ -131,3 +130,26 @@ section.footer div.timer {
   transform: translateX(-50%);
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    // z-index: 1; /* Sit on top */
+    // left: 0;
+    top: 0;
+    width: calc(100% - 200px);
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.1); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    border: 1px solid black;
+    // width: 80%; /* Could be more or less, depending on screen size */
+}
