@@ -1,12 +1,20 @@
-// _imports.scss
 
 $header-font: 'Luckiest Guy', sans-serif;
+$font-stack: 'Jaldi', sans-serif;
+$primary-color: #ffffff;
+
+.home-top {
+  background-image: url("https://speckycdn-sdm.netdna-ssl.com/wp-content/uploads/2014/06/new_icon_set_12.jpg");
+  padding: 1.5em;
+  color: $primary-color;
+}
 
 #logo {
   display: inline-block;
-  margin: .5em;
+  margin: .7em;
   font-family: $header-font;
   font-size: 3em;
+
 }
 
 .home-header a {
@@ -14,45 +22,105 @@ $header-font: 'Luckiest Guy', sans-serif;
   position: absolute;
   right: 0;
   top: 0;
-  margin: 1.6em;
+  margin: 1.4em;
+  text-decoration: none;
+  font-family: $font-stack;
+  font-size: 1.2em;
+  border: 2px solid $primary-color;
+  border-radius: 2px;
+  padding: 5px;
 }
 
-.home-top-center h2 {
-  display: inline-block;
-  vertical-align: middle;
-  width: 48%;
-  padding: 2%;
+.home-header a:hover {
+  background-color: $primary-color;
+  color: black;
 }
 
-.home-top-center img {
+.home-top-center h2, img {
   display: inline-block;
   vertical-align: middle;
+  text-align: center;
   width: 48%;
   padding: 2%;
+  font-family: $font-stack;
+  font-size: 3em;
 }
 
 .home-top-bottom {
   text-align: center;
-  margin: 1em;
+  margin: 1.5em;
+}
+
+.home-top-bottom a {
+  text-decoration: none;
+  font-family: $font-stack;
+  font-size: 1.5em;
+  border: 2px solid $primary-color;
+  border-radius: 2px;
+  padding: 0 10px;
+}
+
+.home-top-bottom a:first-child {
+  background-color: $primary-color;
+  color: black;
+  padding: 0 20px;
+}
+
+.home-top-bottom a:hover {
+  background-color: $primary-color;
+  color: black;
+}
+
+.home-middle {
+  width: 100%;
+  background-color: $primary-color;
 }
 
 .home-middle-left {
   display: inline-block;
   vertical-align: middle;
-  width: 38%;
+  width: 48%;
   padding: 2%;
 }
 
 .home-middle-right {
-  display: inline-block;
-  vertical-align: middle;
+  @extend .home-middle-left;
   text-align: center;
-  width: 58%;
-  padding: 2%;
+  font-family: $font-stack;
 }
 
-.home-middle-right img {
+.home-middle-left img {
+  width: 80%;
+  margin: 2%;
+}
 
+.home-middle-left p {
+  padding: 2em;
+}
+
+footer {
+  text-align: center;
+  background-color: #D9D9D9;
+  font-family: $font-stack;
+  font-size: 2em;
+  padding: 1em;
+}
+
+footer h2 {
+  color: #276DC2;
+  padding-bottom: 1em;
+}
+
+footer a {
+  text-decoration: none;
+  border: 2px solid #276DC2;
+  color: #276DC2;
+  padding: 0px 20px;
+}
+
+footer a:hover {
+  background-color: #276DC2;
+  color: $primary-color;
 }
 
 @media (max-width: 600px) {
@@ -73,6 +141,20 @@ $header-font: 'Luckiest Guy', sans-serif;
 
   .home-top-center img {
     display: block;
+    width: 100%;
+  }
+
+  .home-middle-right {
+    display: block;
+    width: 100%;
+  }
+
+  .home-middle-left {
+    display: block;
+    width: 100%;
+  }
+
+  .home-middle-left img {
     width: 100%;
   }
 }
