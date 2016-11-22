@@ -1,5 +1,9 @@
 class SnippetsController < ApplicationController
 
+  def index
+    @snippet = Snippet.find(1)
+  end
+
   def home
   end
 
@@ -29,18 +33,19 @@ class SnippetsController < ApplicationController
 
   def edit
     @snippet = Snippet.find(params[:id])
+
+
   end
 
   def update
-    snippet = Snippet.new
-    snippet.description = params[:description]
-    snippet.name = params[:name]
-    snippet.user_id = params[:user_id]
-    snippet.body = params[:body]
-    snippet.language = params[:language]
-    snippet.word_count = params[:word_count]
-
-    if snippet.save
+    @snippet = Snippet.find(params[:id])
+    @snippet.description = params[:description]
+    @snippet.name = params[:name]
+    @snippet.user_id = session[:user_id]
+    @snippet.body = params[:body]
+    @snippet.language = params[:language]
+    @snippet.word_count = params[:word_count]
+    if @snippet.save
       redirect_to "/snippets"
     else
       render :edit
