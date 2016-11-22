@@ -111,7 +111,7 @@ span.return {
   color: red;
 }
 
-footer {
+section.footer {
   height: 20px;
   border-top: solid 1px black;
   position: fixed;
@@ -120,12 +120,12 @@ footer {
   background-color: grey;
 }
 
-footer div.proglang{
+section.footer div.proglang{
   position: absolute;
   right: 0;
 }
 
-footer div.timer {
+section.footer div.timer {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

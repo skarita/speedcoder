@@ -1,6 +1,7 @@
   <%= stylesheet_link_tag "snippets/show" %>
 
   <input type="hidden" name="snippet_id" value="<%= params[:id] %>">
+  <input type="hidden" name="snippet_length" value="<%= @array.length %>">
 
   <section class="sidebar">
     <h1 class="page-title">Speedcoder</h1>
@@ -48,9 +49,6 @@
       </tr>
     </table>
 
-    <textarea name="snippet" id="" cols="30" rows="10"></textarea>
-    <button class="load-btn">load</button>
-
   </section>
 
   <section class="header">
@@ -63,13 +61,13 @@
     <div style="clear: both;"></div>
   </section>
 
-  <footer>
+  <section class="footer">
     <div class="timer">
       <p>Timer: <span>0:14</span></p>
     </div>
     <div class="proglang">
       <p>Javascript</p>
     </div>
-  </footer>
+  </section>
 
   <%= javascript_include_tag "snippets/show" %>
