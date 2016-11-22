@@ -1,9 +1,66 @@
+$header-font: 'Luckiest Guy', sans-serif;
+$font-stack: 'Jaldi', sans-serif;
+$primary-color: #ffffff;
+$secondary-color: #276DC2;
 
 body {
   background-color: #D9D9D9;
   width: 100%;
 }
 
+.form-wrapper {
+  margin: 3em;
+}
+
+.form-header {
+  margin: 2em;
+}
+
+.signup-h1 {
+  text-align: center;
+  font-family: $header-font;
+  font-size: 2em;
+}
+
+.form-wrapper h2 {
+  font-family: $font-stack;
+  text-align: center;
+}
+
+.user-forms {
+  width: 20em;
+  margin: 0 auto;
+}
+
 .user-forms input {
-  
+  display: block;
+  padding: 20px;
+  border: none;
+  width: 100%;
+  margin: 10px 0px;
+  border-bottom: 2px solid $secondary-color;
+}
+
+.user-forms button {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 2px;
+  color: $primary-color;
+  background-color: $secondary-color;
+  padding: 20px;
+  width: 200px;
+  font-size: 1.2em;
+}
+
+.user-forms button:hover {
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: 2px solid $secondary-color;
+}
+
+@media (max-width: 600px) {
+  .user-forms {
+    width: 15em;
+  }
 }

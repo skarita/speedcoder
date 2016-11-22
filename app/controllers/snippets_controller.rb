@@ -1,11 +1,10 @@
 class SnippetsController < ApplicationController
 
   def index
+    @snippetsJS = Snippet.where(language: 'javascript')
     @snippet = Snippet.find(1)
   end
 
-  def home
-  end
 
   def show
     @snippet = Snippet.find(params[:id])
