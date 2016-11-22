@@ -1,5 +1,5 @@
 class Snippet < ApplicationRecord
   belongs_to :user
-  belongs_to :attempt
-  
+  has_many :attempts
+
 end
