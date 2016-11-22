@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+h1.page-title {
+  margin-bottom: 10px;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Monofur;
+  font-size: 20px;
+}
+
+section{
+  float: left;
+}
+
+section {
+  /*border: solid 1px black;*/
+}
+
+section.sidebar {
+  width: 200px;
+  overflow: scroll;
+  height: calc(100% - 20px);
+  padding: 5px;
+  font-size: 15px;
+  border-right: solid 1px grey;
+}
+
+table, th, td {
+   border: 1px solid black;
+}
+
+section.header {
+  width: calc(100vw - 200px);
+  height: 30px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+
+}
+
+section.snippet {
+  display: none;
+  width: calc(100vw - 200px);
+  /*height = 100vh - header - footer*/
+  height: calc(100% - 30px - 20px);
+  overflow: scroll;
+}
+
+div.snippet-row {
+  height: 100%;
+  width: 30px;
+  float: left;
+  padding: 5px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+div.snippet-body {
+  height: 100%;
+  width: calc(100% - 55px);
+  float: left;
+  padding: 5px;
+  color: grey;
+  /*word-wrap: break-word;*/
+  word-break: break-all;
+  /*overflow: hidden;*/
+}
+
+.snippet span {
+  display: inline;
+  line-height: 20px;
+  width: 10px;
+  max-height: 20px;
+  text-align: center;
+  /*clear: both;*/
+  
+}
+
+span.return {
+  /*color: transparent;*/
+  /*font-size: 14px;*/
+}
+
+.lightblue {
+  background-color: lightblue;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+footer {
+  height: 20px;
+  border-top: solid 1px black;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  background-color: grey;
+}
+
+footer div.proglang{
+  position: absolute;
+  right: 0;
+}
+
+footer div.timer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
