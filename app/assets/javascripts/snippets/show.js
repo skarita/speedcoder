@@ -2,6 +2,7 @@ var Entities = require('html-entities').XmlEntities;
  
 entities = new Entities();
 
+var snippet_id = $('input[name="snippet_id"]').val();
 var snippet_length = $('input[name="snippet_length"]').val();
 
 var game_start = false;
@@ -124,13 +125,25 @@ $("body").keypress(function(event) {
       $char_elem(count).addClass("pink");
     }
   }
-  if (count >= snippet_length && error_count === 0) {
+  // Conditions for winning
+  if (count >= snippet_length && error_count === 0 && game_start) {
     game_start = false;
-
-    openModal();
     clearInterval(interval);
     var wpm = Math.floor( snippet_length / time_count * 60 );
     $('.modal-content span').text(wpm);
+    openModal();
+
+    $.ajax({
+      method: 'post',
+      url: '/attempts',
+      data: { 
+        snippet_id: snippet_id,
+        score: wpm,
+        accuracy: 100
+      }
+    }).done(function(response) {
+      console.log(response);
+    });
   }
 });
 

@@ -10,7 +10,8 @@ class AttemptsController < ApplicationController
   end
 
   def create
-    if logged_in?
+    # raise
+    if !!session[:user_id]
       attempt = Attempt.new
       attempt.user_id = session[:user_id]
       attempt.snippet_id = params[:snippet_id]
