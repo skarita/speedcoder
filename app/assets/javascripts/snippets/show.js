@@ -2,10 +2,14 @@ var Entities = require('html-entities').XmlEntities;
  
 entities = new Entities();
 
+var snippet_id = $('input[name="snippet_id"]').val();
 var snippet_length = $('input[name="snippet_length"]').val();
 
+var game_start = false;
 var count = 0;
 var error_count = 0;
+var time_count = 0;
+var interval = 0;
 
 // Highlight the first character
 $(".snippet-body span:first").addClass("lightblue");
@@ -16,10 +20,12 @@ function $char_elem(index) {
 
 // Skip white spaces and find next char
 function prev_char_count(count) {
+  if (count === 0) {
+    return count;
+  }
   count--;
   var count_init = count;
-  while ( $char_elem(count).html() === "&nbsp;" ||
-    $char_elem(count).html() === "&nbsp;<br>" ) {
+  while ( $char_elem(count).html() === "&nbsp;" ) {
     count--;
     if ($char_elem(count).html() === "&nbsp;<br>" ) {
       return count;
@@ -30,10 +36,16 @@ function prev_char_count(count) {
 
 // Skip white spaces and find next char
 function next_char_count(count) {
-  count++;
-  while ($char_elem(count).html() === "&nbsp;") {
+  if ($char_elem(count).html() === "&nbsp;<br>") {
+    count++;
+    while ($char_elem(count).html() === "&nbsp;") {
+      count++;
+    }
+  }
+  else {
     count++;
   }
+
   return count;
 }
 
@@ -45,72 +57,108 @@ $("body").keydown(function(event) {
   }
 
   // backspace key
-  if (event.keyCode === 8) {
+  if (event.keyCode === 8 && game_start) {
     $char_elem(count).removeClass("lightblue pink red");
-    if (count > 0) {
-      count = prev_char_count(count, -1);
-    }
-    if (error_count > 0) {
-      error_count = prev_char_count(error_count, -1);
-    }
+
+    count = prev_char_count(count);
+    error_count = prev_char_count(error_count);
+
+    $char_elem(count).removeClass("black red");
+
+    // If there is a typing error
     if (error_count > 0) {
       $char_elem(count).addClass("pink");
     }
+    // If there is no typing error
     else {
       $char_elem(count).addClass("lightblue");
-      $char_elem(count).removeClass("red");
     }
-    $char_elem(count).removeClass("black");
   }
 });
 
 $("body").keypress(function(event) {
-  // disable spacebar
-  if (event.keyCode === 32) {
-    event.preventDefault();
-  }
+  if (count < snippet_length) {
+    if (!game_start) {
+      start_game();
+    }
 
-  var keyCode = event.keyCode;
-
+    var keyCode = event.keyCode;
     var input_char = String.fromCharCode(keyCode);
-    if (event.keyCode === 13) {
+    var char = $char_elem(count).html();
+
+    // disable spacebar from scrolling down
+    if (keyCode === 32) {
+      event.preventDefault();
+    }
+    // if input is enter key
+    else if (event.keyCode === 13) {
       input_char = "<br>";
     }
 
-    var char = $char_elem(count).html();
-
+    // if displayed char is a line break
     if (char === "&nbsp;<br>") {
       char = "<br>";
     }
+    // if displayed char is a white space
     else if (char === "&nbsp;") {
       char = " ";
     }
+    // if displayed char is any other char
     else {
       char = entities.decode(char);
     }
 
-    if (input_char === char && error_count === 0 && count < snippet_length) {
+    // if input is correct and no prev errors
+    if (input_char === char && error_count === 0) {
       $char_elem(count).removeClass("lightblue pink red");
       $char_elem(count).addClass("black");
-      if (event.keyCode === 13 && $char_elem(count).html() === "&nbsp;<br>") {
-        count = next_char_count(count, 1);
-      }
-      else {
-        count++;
-      }
+      count = next_char_count(count);
       
       $char_elem(count).addClass("lightblue");
     }
-    else if (count < snippet_length) {
-      $char_elem(count).removeClass("lightblue pink").addClass("red");
-      if (event.keyCode === 13 && $char_elem(count).html() === "&nbsp;<br>") {
-        count = next_char_count(count);
-        error_count = next_char_count(error_count);
-      }
-      else {
-        count++;
-        error_count++;
-      }
+    // if there are previous errors
+    else {
+      $char_elem(count).removeClass("lightblue pink");
+      $char_elem(count).addClass("red");
+      count = next_char_count(count);
+      error_count = next_char_count(error_count);
       $char_elem(count).addClass("pink");
     }
+  }
+  // Conditions for winning
+  if (count >= snippet_length && error_count === 0 && game_start) {
+    game_start = false;
+    clearInterval(interval);
+    var wpm = Math.floor( snippet_length / time_count * 60 );
+    $('.modal-content span').text(wpm);
+    openModal();
+
+    $.ajax({
+      method: 'post',
+      url: '/attempts',
+      data: { 
+        snippet_id: snippet_id,
+        score: wpm,
+        accuracy: 100
+      }
+    }).done(function(response) {
+      console.log(response);
+    });
+  }
 });
+
+function start_game() {
+  $('div.timer span').css('color','red');
+  game_start = true;
+  interval = setInterval(function() {
+    time_count++;
+    var time_string = Math.floor(time_count / 60) + ":" + ("0" + time_count % 60).slice(-2);
+    $('div.timer span').text(time_string);
+  },1000);
+}
+
+// When the user clicks on the button, open the modal 
+function openModal() {
+  var $modal = $('#winModal');
+  $modal.css('display','block');
+}
