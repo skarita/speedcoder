@@ -1,0 +1,24 @@
+{
+  "name": "speedcoder",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesmah/speedcoder.git"
+  },
+  "author": "Kings of G.A.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesmah/speedcoder/issues"
+  },
+  "homepage": "https://github.com/jamesmah/speedcoder#readme",
+  "dependencies": {
+    "browserify": "^13.1.1",
+    "browserify-incremental": "^3.1.1",
+    "html-entities": "^1.2.0"
+  }
+}
