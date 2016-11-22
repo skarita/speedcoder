@@ -14,6 +14,7 @@ function $char_elem(index) {
   return $(".snippet-body span:eq(" + index + ")");
 }
 
+// Skip white spaces and find next char
 function prev_char_count(count) {
   count--;
   var count_init = count;
@@ -27,6 +28,7 @@ function prev_char_count(count) {
   return count_init;
 }
 
+// Skip white spaces and find next char
 function next_char_count(count) {
   count++;
   while ($char_elem(count).html() === "&nbsp;") {
@@ -112,49 +114,3 @@ $("body").keypress(function(event) {
       $char_elem(count).addClass("pink");
     }
 });
-
-$('.load-btn').click(function(event) {
-  hi();
-  console.log('hi');
-});
-
-function hi() {
-  $(".snippet-row").empty();
-  $(".snippet-body").empty();
-  var test = $('textarea').val();
-  console.log('hi');
-  console.log(test);
-
-  snippet = test;
-
-  var row = 1;
-  $span = $('<span>').html(row + "<br>");
-  $(".snippet-row").append($span);
-  for (var i = 0; i < snippet_length; i++) {
-    if (snippet[i] != "\n") {
-
-      $span = $('<span>').html(entities.encode(snippet[i]));
-      if (snippet[i] === " ") {
-        $span = $('<span>').html("&nbsp;");
-      }
-    }
-    else {
-      row++;
-      $span = $('<span>').html(row + "<br>");
-      $(".snippet-row").append($span);
-
-      $span = $('<span>').html("&nbsp;<br>");
-      $span.addClass('return');
-    }
-    $(".snippet-body").append($span);
-  }
-  $span = $('<span>').html(" <br>");
-  $(".snippet-body").append($span);
-
-  $(".snippet-body span:first").addClass("lightblue");
-
-  $(".snippet").fadeIn();
-
-  count = 0;
-  error_count = 0;
-}
