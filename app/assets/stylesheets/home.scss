@@ -2,6 +2,7 @@
 $header-font: 'Luckiest Guy', sans-serif;
 $font-stack: 'Jaldi', sans-serif;
 $primary-color: #ffffff;
+$secondary-color: #276DC2;
 
 .home-top {
   background-image: url("https://speckycdn-sdm.netdna-ssl.com/wp-content/uploads/2014/06/new_icon_set_12.jpg");
@@ -113,13 +114,13 @@ footer h2 {
 
 footer a {
   text-decoration: none;
-  border: 2px solid #276DC2;
-  color: #276DC2;
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
   padding: 0px 20px;
 }
 
 footer a:hover {
-  background-color: #276DC2;
+  background-color: $secondary-color;
   color: $primary-color;
 }
 
