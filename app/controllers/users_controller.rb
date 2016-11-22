@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     user.password = params[:password]
 
     if user.save
-      redirect_to '/session/new'
+      redirect_to '/snippets'
     else
       render :new
     end
