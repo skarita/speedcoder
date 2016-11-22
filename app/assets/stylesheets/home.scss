@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+// _imports.scss
+
+$header-font: 'Luckiest Guy', sans-serif;
 
 #logo {
   display: inline-block;
   margin: .5em;
-  font-family: 'Luckiest Guy', sans-serif;
+  font-family: $header-font;
   font-size: 3em;
 }
 
 .home-header a {
-  display:inline-block;
+  display: inline-block;
   position: absolute;
   right: 0;
   top: 0;
@@ -36,14 +38,21 @@
 
 .home-middle-left {
   display: inline-block;
-  width: 48%;
-  padding: 20%;
+  vertical-align: middle;
+  width: 38%;
+  padding: 2%;
 }
 
 .home-middle-right {
   display: inline-block;
-  width: 48%;
+  vertical-align: middle;
+  text-align: center;
+  width: 58%;
   padding: 2%;
+}
+
+.home-middle-right img {
+
 }
 
 @media (max-width: 600px) {
