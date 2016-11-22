@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
 
+  get '/', to: 'users#home'
+
 end

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def home
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
     user.name = params[:name]
     user.username = params[:username]
     user.password = params[:password]
-  
+
     if user.save
       redirect_to '/session/new'
     else
