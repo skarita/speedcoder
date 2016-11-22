@@ -59,6 +59,22 @@ body {
   border: 2px solid $secondary-color;
 }
 
+.dropdown-menu {
+  width: 10em;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 20px;
+  border: none;
+  width: 100%;
+  background-color: $secondary-color;
+}
+
 @media (max-width: 600px) {
   .user-forms {
     width: 15em;
