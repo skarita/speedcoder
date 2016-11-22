@@ -126,7 +126,7 @@ $("body").keypress(function(event) {
     }
   }
   // Conditions for winning
-  if (count >= snippet_length && error_count === 0) {
+  if (count >= snippet_length && error_count === 0 && game_start) {
     game_start = false;
     clearInterval(interval);
     var wpm = Math.floor( snippet_length / time_count * 60 );
@@ -142,8 +142,7 @@ $("body").keypress(function(event) {
         accuracy: 100
       }
     }).done(function(response) {
-      data = JSON.parse(response);
-      
+      console.log(response);
     });
   }
 });
