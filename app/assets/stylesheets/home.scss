@@ -1,0 +1,78 @@
+// _imports.scss
+
+$header-font: 'Luckiest Guy', sans-serif;
+
+#logo {
+  display: inline-block;
+  margin: .5em;
+  font-family: $header-font;
+  font-size: 3em;
+}
+
+.home-header a {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1.6em;
+}
+
+.home-top-center h2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48%;
+  padding: 2%;
+}
+
+.home-top-center img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48%;
+  padding: 2%;
+}
+
+.home-top-bottom {
+  text-align: center;
+  margin: 1em;
+}
+
+.home-middle-left {
+  display: inline-block;
+  vertical-align: middle;
+  width: 38%;
+  padding: 2%;
+}
+
+.home-middle-right {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 58%;
+  padding: 2%;
+}
+
+.home-middle-right img {
+
+}
+
+@media (max-width: 600px) {
+  #logo {
+    display: block;
+    text-align: center;
+  }
+
+  .home-header a {
+    visibility: hidden;
+  }
+
+  .home-top-center h2 {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .home-top-center img {
+    display: block;
+    width: 100%;
+  }
+}
