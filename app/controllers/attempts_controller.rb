@@ -17,7 +17,9 @@ class AttemptsController < ApplicationController
       attempt.score = params[:score]
       attempt.accuracy = params[:accuracy]
 
-      attempt.save
+      if attempt.save
+        render json: attempt
+      end
     end
   end
 
