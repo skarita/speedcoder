@@ -12,7 +12,7 @@ Snippet.create({
   description: "Word count script\r\nBy JavaScript Kit (http://javascriptkit.com)",
   user_id: 1,
   language: "javascript",
-  word_count: "102"
+  word_count: 102
 })
 
 Snippet.create({
@@ -20,7 +20,8 @@ Snippet.create({
   name: "Delayed Redirect",
   description: "Delays the redirect",
   user_id: 1,
-  language: "javascript"
+  language: "javascript",
+  word_count: 8
   })
 
   Snippet.create({
@@ -28,14 +29,16 @@ Snippet.create({
     name: "Counting Clicks",
     description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter."
     user_id: 1,
-    language: "javascript"
+    language: "javascript",
+    word_count: 23
     })
 
 Snippet.create({
   body: "function excerpt(str, nwords) {\r\nvar words = str.split(' ');\r\nwords.splice(nwords, words.length-1);\r\nreturn words.join(' ') + \r\n(words.length !== str.split(' ').length ? '&hellip;' : '');\r\n}",
   name: "Reducing text by word limit",
   user_id: 1,
-  description:
+  description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter."
+  word_count: 22
   })
 
   Snippet.create({
@@ -44,5 +47,5 @@ Snippet.create({
     description: "Quote by Dr. Seuss",
     user_id: 1,
     language: "other",
-    word_count: "23"
+    word_count: 23
     })
