@@ -17,6 +17,7 @@ Snippet.create({
 Snippet.create({
   body: "setTimeout( \"window.location.href = 'http://walkerwines.com.au/'\", 5*1000 );",
   name: "Delayed Redirect",
+  description: "Delays the redirect",
   user_id: 1,
   language: "javascript"
   })
@@ -27,3 +28,9 @@ Snippet.create({
     user_id: 1,
     language: "javascript"
     })
+
+Snippet.create({
+  body: "function excerpt(str, nwords) {\r\nvar words = str.split(' ');\r\nwords.splice(nwords, words.length-1);\r\nreturn words.join(' ') + \r\n(words.length !== str.split(' ').length ? '&hellip;' : '');\r\n}",
+  name: "Reducing text by word limit",
+
+  })
