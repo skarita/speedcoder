@@ -66,6 +66,10 @@ $secondary-color: #276DC2;
     width: 100%;
     margin: 2em 0 0 3em;
 
+    table {
+      border: 1px solid grey;
+    }
+
     td {
       width: 50%;
       margin-left: 1em;
