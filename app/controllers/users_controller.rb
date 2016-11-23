@@ -30,12 +30,15 @@ class UsersController < ApplicationController
       if user.errors[:email][0] != nil
         @errors = "Email #{user.errors[:email][0]}"
         render :new
-      elsif user.errors[:username][0] != nil
+      end
+      if user.errors[:username][0] != nil
         @errors = "Username #{user.errors[:username][0]}"
         render :new
-      elsif user.errors[:name][0] != nil
+      end
+      if user.errors[:name][0] != nil
         @errors = "Name #{user.errors[:name][0]}"
         render :new
+      end
       else
         render :new
       end
