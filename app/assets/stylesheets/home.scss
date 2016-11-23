@@ -10,13 +10,6 @@ $secondary-color: #276DC2;
   color: $primary-color;
 }
 
-#logo {
-  display: inline-block;
-  margin: .3em;
-  font-family: $header-font;
-  font-size: 3em;
-}
-
 .create-acc-link {
   display: inline-block;
   position: absolute;
@@ -43,6 +36,7 @@ $secondary-color: #276DC2;
   text-align: center;
   width: 48%;
   padding: 2%;
+  padding-top: 10%;
   font-family: $font-stack;
   font-size: 3em;
 }
@@ -125,10 +119,6 @@ footer a:hover {
 }
 
 @media (max-width: 650px) {
-  #logo {
-    display: block;
-    text-align: center;
-  }
 
   .home-header a {
     visibility: hidden;

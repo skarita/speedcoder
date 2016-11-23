@@ -1,0 +1,26 @@
+<section class="section-ruby">
+  <div class="list">
+    <h3>Other Snippets</h3>
+    <ul>
+      <% @attempts_other.each do |item| %>
+      <li><%= link_to( item.name, snippet_path(item)) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="score-board">
+    <h3>Other Snippets Score Board</h3>
+    <table border="1">
+      <% if @attempts_other.empty? %>
+        <tr>
+          <td> No scores </td>
+          <td> --------- </td>
+        </tr>
+      <% else %>
+        <% @attempts_other.each do |attempt| %>
+          <tr>
+            <td><%= attempt.user.name %></td>
+            <td><%= attempt.score %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
