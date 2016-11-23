@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if !session[:user_id] && !!@user
+    if !@user
       redirect_to '/'
     end
     wpm_total = Attempt.where(user_id: @user.id).order('id DESC').limit(10).map{ |attempt| attempt.score }.sum
@@ -24,17 +24,26 @@ class UsersController < ApplicationController
     user.password = params[:password]
 
     if user.save
-      redirect_to '/snippets'
+      session[:user_id] = user.id
+      redirect_to '/languages'
     else
       render :new
     end
   end
 
   def edit
+    if session[:user_id] != params[:id].to_i
+      redirect_to '/'
+    end
+
     @user = User.find(params[:id])
   end
 
   def update
+    if session[:user_id] != params[:id].to_i
+      redirect_to '/'
+    end
+
     user = User.find(params[:id])
     user.email = params[:email]
     user.name = params[:name]
@@ -48,6 +57,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if session[:user_id] != params[:id].to_i
+      redirect_to '/'
+    end
+    
     user = User.find(params[:id])
     user.destroy
     redirect_to "/users/#{session[:user_id]}"

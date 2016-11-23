@@ -1,9 +1,18 @@
 
 <div class="container users-show-wrapper">
 
+  <% if @user.id == session[:user_id] %>
   <h2 class="average-wpm">Your average WPM: <%= @wpm %></h2>
+  <% else %>
+  <h2 class="average-wpm"><%= @user.username %>'s average WPM: <%= @wpm %></h2>
+  <% end %>
 
+
+  <% if @user.id == session[:user_id] %>
   <h2>Your recent scores</h2>
+  <% else %>
+  <h2><%= @user.username %>'s recent scores</h2>
+  <% end %>
   <table class="table table-striped attempts">
     <tr class="table-col">
       <th class="name">Name</th>
@@ -23,30 +32,40 @@
     <% end %>
   </table>
 
-  <button class="new-snippet btn btn-default">
-    <a href="/snippets/new">
-      <h3>+ Create new snippet</h3>
-    </a>
-  </button>
+  <% if @user.id == session[:user_id] %>
+    <button class="new-snippet btn btn-default">
+      <a href="/snippets/new">
+        <h3>+ Create new snippet</h3>
+      </a>
+    </button>
+  <% end %>
 
-  <h2>Your snippets</h2>
+  <% if @user.id == session[:user_id] %>
+    <h2>Your snippets</h2>
+    <% else %>
+    <h2><%= @user.username %>'s snippets</h2>
+  <% end %>
   <table class="table table-striped snippets">
     <tr class="table-col">
       <th class="name">Name</th>
       <th class="description">Description</th>
       <th class="language">Language</th>
       <th class="body">Body</th>
-      <th></th>
+      <% if @user.id == session[:user_id] %>
+        <th></th>
+      <% end %>
     </tr>
     <% @snippets.each do |snippet| %>
       <tr>
         <td><a href="/snippets/<%= snippet.id %>"><%= snippet.name %></a></td>
-        <td><%= snippet.description[0...100] %></td>
+        <td><a href="/snippets/<%= snippet.id %>"><%= snippet.description[0...100] %></a></td>
         <td><a href="/languages/<%= snippet.language %>"><%= snippet.language %></a></td>
         <td><a href="/snippets/<%= snippet.id %>"><%= snippet.body[0...100] + " ..." %></a></td>
+        <% if @user.id == session[:user_id] %>
         <td><a href="/snippets/<%= snippet.id %>/edit">
           <button class="btn btn-default">edit</button>
         </a></td>
+        <% end %>
       </tr>
     <% end %>
   </table>

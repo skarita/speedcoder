@@ -5,7 +5,9 @@ class SnippetsController < ApplicationController
     body = @snippet.body.delete("\r")
     @array = body.split("").push(" ")
 
-    @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
+    if !!session[:user_id]
+      @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
+    end
 
     @leaderboard = Attempt.where('snippet_id' => @snippet.id).order('score DESC').limit(10)
 
@@ -33,10 +35,20 @@ class SnippetsController < ApplicationController
 
   def edit
     @snippet = Snippet.find(params[:id])
+
+    if session[:user_id] != @snippet.user_id
+      redirect_to '/'
+    end
+
   end
 
   def update
     @snippet = Snippet.find(params[:id])
+
+    if session[:user_id] != @snippet.user_id
+      redirect_to '/'
+    end
+
     @snippet.description = params[:description]
     @snippet.name = params[:name]
     @snippet.user_id = session[:user_id]
@@ -52,6 +64,9 @@ class SnippetsController < ApplicationController
 
   def destroy
     snippet = Snippet.find(params[:id])
+    if session[:user_id] != @snippet.user_id
+      redirect_to '/'
+    end
     snippet.destroy
     redirect_to "/snippets"
   end

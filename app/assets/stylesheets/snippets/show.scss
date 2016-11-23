@@ -17,7 +17,7 @@ div.snippets-show-wrapper {
     // height: 100%;
     width: 200px;
     overflow: scroll;
-    height: calc(100% - 20px);
+    height: calc(100% - 30px);
     padding: 5px;
     font-size: 15px;
     border-right: solid 1px gray;
@@ -43,7 +43,7 @@ div.snippets-show-wrapper {
   section.snippet {
     width: calc(100vw - 200px);
     /*height = 100vh - header - footer*/
-    height: calc(100% - 30px - 20px);
+    height: calc(100% - 30px - 30px);
     overflow: scroll;
     position: relative;
   }
@@ -105,7 +105,7 @@ div.snippets-show-wrapper {
   }
 
   section.footer {
-    height: 20px;
+    height: 30px;
     border-top: solid 1px black;
     position: fixed;
     width: 100vw;
