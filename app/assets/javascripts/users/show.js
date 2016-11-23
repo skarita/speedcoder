@@ -1,5 +1,5 @@
-$('.dropdown-menu').hide();
+// $('.dropdown-menu').hide();
 
-$('.create-acc-link').on('click', function() {
-  $('.dropdown-menu').slideToggle();
-});
+// $('.create-acc-link').on('click', function() {
+//   $('.dropdown-menu').slideToggle();
+// });
