@@ -4,18 +4,18 @@
     <div class="div-snippets-list">
       <table class="table table-striped">
         <tr>
-          <th class="column-title">Name</th>
+          <th  class="column-title">Name</th>
           <th class="column-title">Description</th>
         </tr>
         <% @snippets_pop.each do |js| %>
-          <tr>
+          <tr class='clickable-row' data-href='/snippets/<%= js.id %>'>
             <td><%= link_to( js.name, snippet_path(js)) %></td>
             <td><%= truncate(js.description, length: 100) %></td>
           </tr>
         <% end %>
         <% @snippets_JS.each do |js| %>
           <% if !@snippets_pop.include? js%>
-            <tr>
+            <tr class='clickable-row' data-href='/snippets/<%= js.id %>'>
               <td><%= link_to( js.name, snippet_path(js)) %></td>
               <td><%= truncate(js.description, length: 100) %></td>
             </tr>
@@ -45,7 +45,7 @@
           <% @attempts_JS.each do |attempt| %>
           <tr>
             <td><%= @position %></td>
-            <td><%= attempt.user.username %></td>
+            <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.username %></a></td>
             <td><%= attempt.score %></td>
           </tr>
           <% @position = @position + 1 %>

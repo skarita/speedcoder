@@ -10,20 +10,27 @@
 
       <h3 class="back-to-snippets"><a href="/languages/<%= @snippet.language %>"><- back to snippets</a></h3>
 
-      <!-- History -->
-      <h3>History</h3>
-      <table class="table table-striped">
-        <tr>
-          <th>WPM</th>
-          <th>Time</th>
-        </tr>
-        <% @history.each do |attempt| %>
+      <p><%= @snippet.name %></p>
+      <p><%= @snippet.description %></p>
+
+      <br>
+
+      <% if !!session[:user_id] %>
+        <!-- History -->
+        <h3>History</h3>
+        <table class="table table-striped">
           <tr>
-            <td><%= attempt.score %>wpm</td>
-            <td><%= Time.zone.now.day - attempt.updated_at.day %> day/s ago</td>
+            <th>WPM</th>
+            <th>Time</th>
           </tr>
-        <% end %>
-      </table>
+          <% @history.each do |attempt| %>
+            <tr>
+              <td><%= attempt.score %>wpm</td>
+              <td><%= Time.zone.now.day - attempt.updated_at.day %> day/s ago</td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
 
       <!-- Leaderboard -->
       <h3>Leaderboard</h3>

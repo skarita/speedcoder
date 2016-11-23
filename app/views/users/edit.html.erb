@@ -1,13 +1,21 @@
-<%= form_tag user_path , method: 'patch' do %>
 
-  <input id="name" name="name" type="text" placeholder="Username" value="<%= @user.name %>">
+  <div class="form-wrapper">
+    <div class="form-header">
+      <h1 class="signup-h1">Speedcoder</h1>
+      <h2>Editing your Account</h2>
+    </div>
 
-  <input id="email" name="email" type="email" placeholder="Email Address" value="<%= @user.email %>">
+    <div class="user-forms">
 
-  <input id="username" name="username" type="text" placeholder="Username" value="<%= @user.username %>">
+      <%= form_tag user_path , method: 'patch' do %>
 
-  <input id="password" name="password" type="password" placeholder="Password" >
+        <input type="text" name="name" placeholder="Name" value="<%= @user.name %>">
+        <input type="email" name="email" placeholder="Email" value="<%= @user.email %>">
+        <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+        <input type="password" name="password" placeholder="New password? Type it here" value="">
+        <button>Update</button>
 
-  <button >Submit</button>
+      <% end %>
 
-  <% end %>
+    </div>
+  </div>
