@@ -5,6 +5,14 @@ class SnippetsController < ApplicationController
     body = @snippet.body.delete("\r")
     @array = body.split("").push(" ")
 
+    if @snippet.language == 'javascript'
+      @header_snippet_name = @snippet.name.gsub(/\s/, '_') + '.js'
+    elsif @snippet.language == 'ruby'
+      @header_snippet_name = @snippet.name.gsub(/\s/, '_') + '.rb'
+    else
+      @header_snippet_name = @snippet.name
+    end
+
     if !!session[:user_id]
       @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
     end
