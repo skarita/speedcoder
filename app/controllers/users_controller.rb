@@ -30,12 +30,15 @@ class UsersController < ApplicationController
       if user.errors[:email][0] != nil
         @errors = "Email #{user.errors[:email][0]}"
         render :new
-      elsif user.errors[:username][0] != nil
+      end
+      if user.errors[:username][0] != nil
         @errors = "Username #{user.errors[:username][0]}"
         render :new
-      elsif user.errors[:name][0] != nil
+      end
+      if user.errors[:name][0] != nil
         @errors = "Name #{user.errors[:name][0]}"
         render :new
+      end
       else
         render :new
       end
@@ -62,7 +65,7 @@ class UsersController < ApplicationController
     if params[:password] != ''
       user.password = params[:password]
     end
-    
+
     if user.save
       redirect_to "/users/#{session[:user_id]}"
     else
@@ -74,7 +77,7 @@ class UsersController < ApplicationController
     if session[:user_id] != params[:id].to_i
       redirect_to '/'
     end
-    
+
     user = User.find(params[:id])
     user.destroy
     redirect_to "/users/#{session[:user_id]}"
