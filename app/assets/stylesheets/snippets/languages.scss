@@ -15,6 +15,7 @@ $secondary-color: #276DC2;
     h2 {
       text-align: center;
       font-family: $font-stack;
+      font-size: 2em;
     }
   }
 
@@ -25,6 +26,7 @@ $secondary-color: #276DC2;
     padding: .7em;
     border: 2px solid black;
     border-radius: 2px;
+
 
     h2 {
       padding: .5em;
@@ -39,11 +41,10 @@ $secondary-color: #276DC2;
 
     img {
       display: inline-block;
-      max-width: 20%;
-      padding: .3em;
+      width: 1.2em;
+      padding: 0;
       float: right;
     }
-
   }
 
   .language-card:first-child {
@@ -59,6 +60,7 @@ $secondary-color: #276DC2;
     h2 {
       text-align: center;
       font-family: $font-stack;
+      font-size: 2em;
     }
   }
 
@@ -66,13 +68,24 @@ $secondary-color: #276DC2;
     width: 100%;
     margin: 2em 0 0 3em;
 
-    table {
-      border: 1px solid grey;
-    }
-
     td {
       width: 50%;
       margin-left: 1em;
+    }
+  }
+
+  @media (max-width: 850px) {
+    .language-leaderboard {
+      display: block;
+      width: 100%;
+    }
+    .languages-wrapper {
+      width: 100%;
+    }
+
+    .language-score-board {
+      width: 90%;
+      margin: 1em auto;
     }
   }
 }

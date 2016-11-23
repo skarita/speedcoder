@@ -36,14 +36,12 @@
             <td> --------- </td>
           </tr>
         <% else %>
-          <% @snippets.each do |snippet| %>
-            <% @attempts.each do |attempt| %>
-              <tr>
-                <td><%= link_to( snippet.name, snippet_path(snippet)) %></td>
-                <td><%= attempt.user.username %></td>
-                <td><%= attempt.score %></td>
-              </tr>
-            <% end %>
+          <% @attempts.each do |attempt| %>
+            <tr>
+              <td><%= link_to(attempt.snippet.name, snippet_path(attempt.snippet.name)) %></td>
+              <td><%= attempt.user.username %></td>
+              <td><%= attempt.score %></td>
+            </tr>
           <% end %>
         <% end %>
       </table>
