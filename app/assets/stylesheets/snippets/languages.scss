@@ -1,0 +1,74 @@
+
+$header-font: 'Luckiest Guy', sans-serif;
+$font-stack: 'Jaldi', sans-serif;
+$primary-color: #ffffff;
+$secondary-color: #276DC2;
+
+.snippets-language-wrapper {
+  width: 100%;
+
+  .languages-wrapper {
+    width: 45%;
+    display: inline-block;
+    margin-top: 5em;
+
+    h2 {
+      text-align: center;
+      font-family: $font-stack;
+    }
+  }
+
+  .language-card {
+    width: 80%;
+    display: block;
+    margin: 2em auto;
+    padding: .7em;
+    border: 2px solid black;
+    border-radius: 2px;
+
+    h2 {
+      padding: .5em;
+      text-align: left;
+      display: inline-block;
+      font-size: 2.2em;
+    }
+
+    h2 a {
+      text-decoration: none;
+    }
+
+    img {
+      display: inline-block;
+      max-width: 20%;
+      padding: .3em;
+      float: right;
+    }
+
+  }
+
+  .language-card:first-child {
+    margin-top: 4em;
+  }
+
+  .language-leaderboard {
+      display: inline-block;
+      width: 49%;
+      vertical-align: top;
+      margin-top: 5em;
+
+    h2 {
+      text-align: center;
+      font-family: $font-stack;
+    }
+  }
+
+  .language-score-board {
+    width: 100%;
+    margin: 2em 0 0 3em;
+
+    td {
+      width: 50%;
+      margin-left: 1em;
+    }
+  }
+}
