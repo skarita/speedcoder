@@ -7,11 +7,19 @@
           <th class="column-title">Name</th>
           <th class="column-title">Description</th>
         </tr>
-        <% @snippets_JS.each do |js| %>
+        <% @snippets_pop.each do |js| %>
           <tr>
             <td><%= link_to( js.name, snippet_path(js)) %></td>
-            <td><%= js.description %></td>
+            <td><%= truncate(js.description, length: 100) %></td>
           </tr>
+        <% end %>
+        <% @snippets_JS.each do |js| %>
+          <% if !@snippets_pop.include? js%>
+            <tr>
+              <td><%= link_to( js.name, snippet_path(js)) %></td>
+              <td><%= truncate(js.description, length: 100) %></td>
+            </tr>
+          <% end %>
         <% end %>
       </table>
     </div>
@@ -33,12 +41,14 @@
           <td> --------- </td>
         </tr>
         <% else %>
+          <% @position = 1 %>
           <% @attempts_JS.each do |attempt| %>
           <tr>
-            <td>Pos</td>
+            <td><%= @position %></td>
             <td><%= attempt.user.username %></td>
             <td><%= attempt.score %></td>
           </tr>
+          <% @position = @position + 1 %>
           <% end %>
         <% end %>
       </table>

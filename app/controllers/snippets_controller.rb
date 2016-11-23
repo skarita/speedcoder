@@ -4,7 +4,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
     body = @snippet.body.delete("\r")
     @array = body.split("").push(" ")
-    
+
     @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
 
     @leaderboard = Attempt.where('snippet_id' => @snippet.id).order('score DESC').limit(10)
@@ -64,6 +64,7 @@ class SnippetsController < ApplicationController
 
   def javascript
     @snippets_JS = Snippet.where(language: 'javascript')
+    @snippets_pop = Snippet.joins(:attempts).group(:id).order("count(*) desc")
     @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).limit(10)
   end
 
