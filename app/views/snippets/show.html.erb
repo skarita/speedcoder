@@ -36,7 +36,7 @@
       <h3>Leaderboard</h3>
       <table class="table table-striped">
         <tr>
-          <th>Pos</th>
+          <th>Rank</th>
           <th>Player</th>
           <th>WPM</th>
         </tr>
@@ -51,7 +51,7 @@
     </section>
 
     <section class="header">
-      <p><%= @snippet.name %><% if @snippet.language=='javascript' %>.js<% end %><% if @snippet.language=='ruby' %>.rb<% end %></p>
+      <p><%= @header_snippet_name %></p>
     </section>
 
     <section class="snippet">

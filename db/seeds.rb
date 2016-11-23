@@ -16,36 +16,38 @@ Snippet.create({
 })
 
 Snippet.create({
-  body: "setTimeout( \"window.location.href = 'http://walkerwines.com.au/'\", 5*1000 );",
+  body: "setTimeout( \"window.location.href = 'http://mahjam.es/'\", 5*1000 );",
   name: "Delayed Redirect",
-  description: "Delays the redirect",
+  description: "Handy for after submitting a form or moving sites and wanting to tell users about the change. Just change the URL (can be absolute or relative) and the timeout. Shown here as 5 seconds.\r\nSource: http://snipplr.com/view/2032/delayed-redirect/",
   user_id: 1,
   language: "javascript",
   word_count: 8
-  })
+})
 
-  Snippet.create({
-    body: "$(element)\r\n.data('counter', 0) // begin counter at zero\r\n.click(function() {\r\nvar counter = $(this).data('counter'); // get\r\n$(this).data('counter', counter + 1); // set\r\n// do something else...\r\n});",
-    name: "Counting Clicks",
-    description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter.",
-    user_id: 1,
-    language: "javascript",
-    word_count: 23
-    })
+Snippet.create({
+  body: "$(element)\r\n.data('counter', 0) // begin counter at zero\r\n.click(function() {\r\nvar counter = $(this).data('counter'); // get\r\n$(this).data('counter', counter + 1); // set\r\n// do something else...\r\n});",
+  name: "Counting Clicks",
+  description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter.",
+  user_id: 1,
+  language: "javascript",
+  word_count: 23
+})
+
 
 Snippet.create({
   body: "function excerpt(str, nwords) {\r\nvar words = str.split(' ');\r\nwords.splice(nwords, words.length-1);\r\nreturn words.join(' ') + \r\n(words.length !== str.split(' ').length ? '&hellip;' : '');\r\n}",
   name: "Reducing text by word limit",
   user_id: 1,
   description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter.",
+  language: "javascript",
   word_count: 22
-  })
+})
 
-  Snippet.create({
-    body: "Be who you are and say what you feel, because those who mind don't matter and those who matter don't mind.",
-    name: "Dr. Seuss",
-    description: "Quote by Dr. Seuss",
-    user_id: 1,
-    language: "other",
-    word_count: 23
-    })
+Snippet.create({
+  body: "Be who you are and say what you feel, because those who mind don't matter and those who matter don't mind.",
+  name: "Dr. Seuss",
+  description: "Quote by Dr. Seuss",
+  user_id: 1,
+  language: "other",
+  word_count: 23
+})

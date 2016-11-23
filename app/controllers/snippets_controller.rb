@@ -5,6 +5,14 @@ class SnippetsController < ApplicationController
     body = @snippet.body.delete("\r")
     @array = body.split("").push(" ")
 
+    if @snippet.language == 'javascript'
+      @header_snippet_name = @snippet.name.gsub(/\s/, '_') + '.js'
+    elsif @snippet.language == 'ruby'
+      @header_snippet_name = @snippet.name.gsub(/\s/, '_') + '.rb'
+    else
+      @header_snippet_name = @snippet.name
+    end
+
     if !!session[:user_id]
       @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
     end
@@ -22,7 +30,9 @@ class SnippetsController < ApplicationController
     snippet.description = params[:description]
     snippet.name = params[:name]
     snippet.user_id = session[:user_id]
-    snippet.body = params[:body].strip
+    snippet.body = params[:body].split("\n").map do |line|
+                      line.rstrip
+                  end.join("\n").strip
     snippet.language = params[:language]
     snippet.word_count = snippet.body.scan(/[[:alpha:]]+/).count
 
@@ -52,7 +62,9 @@ class SnippetsController < ApplicationController
     @snippet.description = params[:description]
     @snippet.name = params[:name]
     @snippet.user_id = session[:user_id]
-    @snippet.body = params[:body]
+    @snippet.body = params[:body].split("\n").map do |line|
+                      line.rstrip
+                  end.join("\n").strip
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save
