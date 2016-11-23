@@ -10,7 +10,6 @@ class AttemptsController < ApplicationController
   end
 
   def create
-    # raise
     if !!session[:user_id]
       attempt = Attempt.new
       attempt.user_id = session[:user_id]

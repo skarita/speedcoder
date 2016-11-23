@@ -2,20 +2,33 @@
 <div class="wrapper">
   <header>
     <h1 id="logo">SpeedCoder</h1>
+    <h2 class="create-acc-link"> <%= current_user.username %></h2>
 
-    <% if logged_in? %>
-      <h2 class="create-acc-link"> <%= current_user.username %></h2>
-    <% else %>
-      <a class="create-acc-link" href="/users/new">Create a Free Account</a>
-    <% end %>
-      <div class="dropdown-menu">
-        <a href="/snippets/new">New Snippet</a>
-        <a href="">My Snippets</a>
-        <a href="">Edit Account</a>
-        <a href="">Logout</a>
-      </div>
+    <div class="dropdown-menu">
+      <a href="/snippets/new">New Snippet</a>
+      <a href="">Edit Account</a>
+      <a href="">Logout</a>
+    </div>
   </header>
 
+  <div class="snippets">
+    <% @snippets.each do |snippet| %>
+      <h3><%= snippet.name %></h3>
+      <p><%= snippet.description %></p>
+      <p><%= snippet.word_count %></p>
+      <p><%= snippet.language %></p>
+      <p><%= snippet.body[0...100] + " ..." %></p>
+    <% end %>
+  </div>
+
+  <div class="attempts">
+    <% @attempts.each do |attempt| %>
+      <h3><%= attempt.snippet.name %></h3>
+      <p><%= attempt.snippet.language %></p>
+      <p><%= attempt.score %></p>
+      <p><%= attempt.accuracy %></p>
+    <% end %>
+  </div>
 
   <footer>
   </footer>

@@ -4,10 +4,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if !session[:user_id] && !!@user
+      redirect_to '/'
+    end
+    @snippets = Snippet.where(user_id: @user.id)
+    @attempts = Attempt.where(user_id: @user.id)
+
   end
 
   def new
-
   end
 
   def create
@@ -18,7 +23,7 @@ class UsersController < ApplicationController
     user.password = params[:password]
 
     if user.save
-      redirect_to '/session/new'
+      redirect_to '/snippets'
     else
       render :new
     end
@@ -46,4 +51,5 @@ class UsersController < ApplicationController
     user.destroy
     redirect_to "/users/#{session[:user_id]}"
   end
+
 end
