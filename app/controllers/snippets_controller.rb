@@ -14,7 +14,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
-    redirect_to '/languages' unless logged_in?
+    redirect_to '/languages' unless !session[:user_id]
 
   end
 

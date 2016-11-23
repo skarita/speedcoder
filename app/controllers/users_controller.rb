@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def home
-    if logged_in? then redirect_to '/languages' end
+    if !session[:user_id] then redirect_to '/languages' end
   end
 
   def show
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    if current_user then redirect_to '/languages' end
+    if session[:user_id] then redirect_to '/languages' end
   end
 
   def create
