@@ -26,7 +26,18 @@ class UsersController < ApplicationController
     if user.save
       redirect_to '/snippets'
     else
-      render :new
+      if user.errors[:email][0] != nil
+        @errors = "Email #{user.errors[:email][0]}"
+        render :new
+      elsif user.errors[:username][0] != nil
+        @errors = "Username #{user.errors[:username][0]}"
+        render :new
+      elsif user.errors[:name][0] != nil
+        @errors = "Name #{user.errors[:name][0]}"
+        render :new
+      else
+        render :new
+      end
     end
   end
 
