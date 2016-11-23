@@ -9,27 +9,16 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <h2 class="create-acc-link"> <%= current_user.username %></h2>
-      <div class="dropdown-menu">
-        <a href="/snippets/new">New Snippet</a>
-        <a href="">My Snippets</a>
-        <a href="">Edit Account</a>
-        <a href="">Logout</a>
-      </div>
-    <% else %>
-      <a  href="/users/new" class="create-acc-link">Create a Free Account</a>
-    <% end %>
-    <h2 class="create-acc-link"> Start Typing Now</h2>
+    <h2 class="create-acc-link"> <%= current_user.username %></h2>
     <div class="dropdown-menu">
+
+
       <a href="/snippets/new">New Snippet</a>
-      <a href="">My Snippets</a>
-      <a href="">Edit Account</a>
-      <a href="">Logout</a>
+      <a href="/users/<%= current_user.id %>">My Snippets</a>
+      <a href="/users/<%= current_user.id %>/edit">Edit Account</a>
+      <a href="/session">Logout</a>
     </div>
 
     <%= yield %>
-
-    <%= javascript_include_tag "users/show" %>
   </body>
 </html>
