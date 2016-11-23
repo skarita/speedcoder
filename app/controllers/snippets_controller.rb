@@ -63,6 +63,7 @@ class SnippetsController < ApplicationController
 
   def javascript
     @snippets_JS = Snippet.where(language: 'javascript')
+    @snippets_pop = Snippet.joins(:attempts).group(:id).order("count(*) desc")
     @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).limit(10)
   end
 
