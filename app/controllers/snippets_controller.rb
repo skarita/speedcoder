@@ -56,7 +56,7 @@ class SnippetsController < ApplicationController
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save
-      redirect_to "/snippets/#{snippet.id}"
+      redirect_to "/snippets/#{@snippet.id}"
     else
       render :edit
     end
@@ -64,11 +64,11 @@ class SnippetsController < ApplicationController
 
   def destroy
     snippet = Snippet.find(params[:id])
-    if session[:user_id] != @snippet.user_id
+    if session[:user_id] != snippet.user_id
       redirect_to '/'
     end
     snippet.destroy
-    redirect_to "/snippets"
+    redirect_to "/users/#{session[:user_id]}"
   end
 
   def languages
@@ -78,17 +78,19 @@ class SnippetsController < ApplicationController
 
   def javascript
     @snippets_JS = Snippet.where(language: 'javascript')
-    @snippets_pop = Snippet.joins(:attempts).group(:id).order("count(*) desc")
+    @snippets_pop = Snippet.joins(:attempts).where(language: 'javascript').group(:id).order("count(*) desc")
     @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).limit(10)
   end
 
   def ruby
     @snippets_rb = Snippet.where(language: 'ruby')
+    @snippets_pop = Snippet.joins(:attempts).where(language: 'ruby').group(:id).order("count(*) desc")
     @attempts_rb = Attempt.joins(:snippet).where(snippets: {language: :ruby }).order(score: :desc).limit(10)
   end
 
   def others
     @snippets_other = Snippet.where(language: 'other')
+    @snippets_pop = Snippet.joins(:attempts).where(language: 'other').group(:id).order("count(*) desc")
     @attempts_other = Attempt.joins(:snippet).where(snippets: {language: :other }).order(score: :desc).limit(10)
   end
 end

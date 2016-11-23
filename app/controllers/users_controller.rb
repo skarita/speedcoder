@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     attempt_count = Attempt.where(user_id: @user.id).order('id DESC').limit(10).count
     @wpm = wpm_total / attempt_count
     @attempts = Attempt.where(user_id: @user.id).order('id DESC').limit(10)
-    @snippets = Snippet.where(user_id: @user.id)
+    @snippets = Snippet.where(user_id: @user.id).order('id DESC')
   end
 
   def new
@@ -28,7 +28,21 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/languages'
     else
-      render :new
+      if user.errors[:email][0] != nil
+        @errors = "Email #{user.errors[:email][0]}"
+        render :new
+      end
+      if user.errors[:username][0] != nil
+        @errors = "Username #{user.errors[:username][0]}"
+        render :new
+      end
+      if user.errors[:name][0] != nil
+        @errors = "Name #{user.errors[:name][0]}"
+        render :new
+      end
+      else
+        render :new
+      end
     end
   end
 
@@ -52,7 +66,7 @@ class UsersController < ApplicationController
     if params[:password] != ''
       user.password = params[:password]
     end
-    
+
     if user.save
       redirect_to "/users/#{session[:user_id]}"
     else
@@ -64,7 +78,7 @@ class UsersController < ApplicationController
     if session[:user_id] != params[:id].to_i
       redirect_to '/'
     end
-    
+
     user = User.find(params[:id])
     user.destroy
     redirect_to "/users/#{session[:user_id]}"

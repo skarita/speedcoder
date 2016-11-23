@@ -7,6 +7,8 @@
 
   <div class="user-forms">
 
+    <h3><%= @errors %></h3>
+
     <%= form_tag '/users', method: 'post' do%>
 
       <input type="text" name="name" placeholder="Name">
