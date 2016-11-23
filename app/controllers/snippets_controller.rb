@@ -57,7 +57,7 @@ class SnippetsController < ApplicationController
   end
 
   def languages
-    @snippets = Snippet.all
+    @snippets = Snippet.all.limit(10)
     @attempts = Attempt.joins(:snippet).all.order(score: :desc).limit(10)
 
   end
