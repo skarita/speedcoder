@@ -1,13 +1,11 @@
 class SessionController < ApplicationController
 
   def new
-    if !session[:user_id] redirect_to '/languages'
 
     render :new
   end
 
   def create
-    if !session[:user_id] redirect_to '/languages'
 
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
