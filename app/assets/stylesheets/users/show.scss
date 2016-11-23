@@ -11,22 +11,12 @@
     margin-bottom: .3em;
   }
 
-  table tr:first-of-type td {
-    font-weight: bold;
-    // border-top: solid 2px gray;
-    // border-bottom: solid 2px gray;
-  }
-
-  table tr:last-of-type td {
-    // border-bottom: solid 2px gray;
-  }
-
   button.new-snippet {
     margin: .5em;
   }  
 
   th.name {
-    min-width: 8em;
+    width: 8em;
   }
   th.description {
     min-width: 8em;
