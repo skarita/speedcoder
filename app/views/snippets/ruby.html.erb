@@ -1,0 +1,29 @@
+<section class="section-ruby">
+  <div class="list">
+    <h3>Ruby Snippets</h3>
+    <ul>
+      <% @snippets_rb.each do |rb| %>
+      <li><%= link_to( rb.name, snippet_path(rb)) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="score-board">
+    <h3>Ruby Score Board</h3>
+    <table border="1">
+      <% if @attempts_rb.empty? %>
+        <tr>
+          <td> No scores </td>
+          <td> --------- </td>
+        </tr>
+      <% else %>
+        <% @attempts_rb.each do |attempt| %>
+          <tr>
+            <td><%= attempt.user.name %></td>
+            <td><%= attempt.score %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+
+</section>
