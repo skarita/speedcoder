@@ -4,80 +4,83 @@
   <input type="hidden" name="snippet_length" value="<%= @array.length-1 %>">
   <input type="hidden" name="snippet_word_count" value="<%= @snippet.word_count %>">
 
-  <section class="sidebar">
-    <h1 class="page-title">Speedcoder</h1>
+  <div class="snippets-show-wrapper">
 
-    <h3>back to snippets</h3>
+    <section class="sidebar">
+      <h1 class="page-title">Speedcoder</h1>
 
-    <!-- User -->
-    <h3>paulmorello</h3>
-    <ul>
-      <li>settings</li>
-      <li>sign out</li>
-    </ul>
+      <h3>back to snippets</h3>
 
-    <!-- Stat -->
-    <h3>Stats</h3>
-    <ul>
-      <li>WPM: </li>
-    </ul>
+      <!-- User -->
+      <h3>paulmorello</h3>
+      <ul>
+        <li>settings</li>
+        <li>sign out</li>
+      </ul>
 
-    <!-- History -->
-    <h3>History</h3>
-    <table>
-      <tr>
-        <td>87wpm</td>
-        <td>7 days ago</td>
-      </tr>
-      <tr>
-        <td>90wpm</td>
-        <td>2 days ago</td>
-      </tr>
-    </table>
+      <!-- Stat -->
+      <h3>Stats</h3>
+      <ul>
+        <li>WPM: </li>
+      </ul>
 
-    <!-- Leaderboard -->
-    <h3>leaderboard</h3>
-    <table>
-      <tr>
-        <td>1</td>
-        <td><a href="#">Melissa</a></td>
-        <td>100 wpm</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><a href="#">James</a></td>
-        <td>90wpm</td>
-      </tr>
-    </table>
-  </section>
+      <!-- History -->
+      <h3>History</h3>
+      <table>
+        <tr>
+          <td>87wpm</td>
+          <td>7 days ago</td>
+        </tr>
+        <tr>
+          <td>90wpm</td>
+          <td>2 days ago</td>
+        </tr>
+      </table>
 
-  <section class="header">
-    <p>sample.js</p>
-  </section>
+      <!-- Leaderboard -->
+      <h3>leaderboard</h3>
+      <table>
+        <tr>
+          <td>1</td>
+          <td><a href="#">Melissa</a></td>
+          <td>100 wpm</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="#">James</a></td>
+          <td>90wpm</td>
+        </tr>
+      </table>
+    </section>
 
-  <section class="snippet">
-    <div class="snippet-row"><% for i in 1..@array.count("\n")+1 do %><span><%= i.to_s %><br></span><% end %></div>
-    <div class="snippet-body"><% @array.each do |char| %><span><% if char == "\n" %>&nbsp;<br><% elsif char == " " %>&nbsp;<% else %><%= char %><% end %></span><% end %></div>
-    <div style="clear: both;"></div>
+    <section class="header">
+      <p>sample.js</p>
+    </section>
 
-    <!-- The Modal -->
-    <div id="winModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <p>WPM: <span></span></p>
-        <a href="/snippets/<%= params[:id] %>">Play again</a>
+    <section class="snippet">
+      <div class="snippet-row"><% for i in 1..@array.count("\n")+1 do %><span><%= i.to_s %><br></span><% end %></div>
+      <div class="snippet-body"><% @array.each do |char| %><span><% if char == "\n" %>&nbsp;<br><% elsif char == " " %>&nbsp;<% else %><%= char %><% end %></span><% end %></div>
+      <div style="clear: both;"></div>
+
+      <!-- The Modal -->
+      <div id="winModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <p>WPM: <span></span></p>
+          <a href="/snippets/<%= params[:id] %>">Play again</a>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <section class="footer">
-    <div class="timer">
-      <p>Timer: <span>0:00</span></p>
-    </div>
-    <div class="proglang">
-      <p>Javascript</p>
-    </div>
-  </section>
+    <section class="footer">
+      <div class="timer">
+        <p>Timer: <span>0:00</span></p>
+      </div>
+      <div class="proglang">
+        <p>Javascript</p>
+      </div>
+    </section>
+  </div>
 
   <%= javascript_include_tag "snippets/show" %>
