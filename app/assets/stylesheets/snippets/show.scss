@@ -2,7 +2,6 @@ div.snippets-show-wrapper {
 
   height: calc(100vh - 50px);
   margin: 0;
-  font-family: Monofur;
   font-size: 20px;
 
   section{
@@ -37,7 +36,7 @@ div.snippets-show-wrapper {
     height: 30px;
     padding: 5px;
     border-bottom: 1px solid black;
-
+    font-family: Monofur;
   }
 
   section.snippet {
@@ -46,6 +45,8 @@ div.snippets-show-wrapper {
     height: calc(100% - 30px - 30px);
     overflow: scroll;
     position: relative;
+    font-family: Monofur;
+    font-size: 18px;
   }
 
   div.snippet-row {

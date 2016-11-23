@@ -1,29 +1,56 @@
-<section class="section-ruby">
-  <div class="list">
+
+  <div class="left-side">
     <h3>Ruby Snippets</h3>
-    <ul>
-      <% @snippets_rb.each do |rb| %>
-      <li><%= link_to( rb.name, snippet_path(rb)) %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="score-board">
-    <h3>Ruby Score Board</h3>
-    <table border="1">
-      <% if @attempts_rb.empty? %>
+    <div class="div-snippets-list">
+      <table class="table table-striped">
         <tr>
-          <td> No scores </td>
-          <td> --------- </td>
+          <th  class="column-title">Name</th>
+          <th class="column-title">Description</th>
         </tr>
-      <% else %>
-        <% @attempts_rb.each do |attempt| %>
-          <tr>
-            <td><%= attempt.user.name %></td>
-            <td><%= attempt.score %></td>
+        <% @snippets_pop.each do |rb| %>
+          <tr class='clickable-row' data-href='/snippets/<%= rb.id %>'>
+            <td><%= link_to( rb.name, snippet_path(rb)) %></td>
+            <td><%= truncate(rb.description, length: 100) %></td>
           </tr>
         <% end %>
-      <% end %>
-    </table>
+        <% @snippets_rb.each do |rb| %>
+          <% if !@snippets_pop.include? rb %>
+            <tr class='clickable-row' data-href='/snippets/<%= rb.id %>'>
+              <td><%= link_to( rb.name, snippet_path(rb)) %></td>
+              <td><%= truncate(rb.description, length: 100) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
   </div>
 
-</section>
+  <div class="right-side">
+    <div class="div-language-score-board">
+      <h3>Score Board</h3>
+      <table class="table table-striped">
+        <tr>
+          <th>#</th>
+          <th> Username </th>
+          <th> Score </th>
+        </tr>
+        <% if @attempts_rb.empty? %>
+        <tr>
+          <td> --- </td>
+          <td> No entries </td>
+          <td> --------- </td>
+        </tr>
+        <% else %>
+          <% @position = 1 %>
+          <% @attempts_rb.each do |attempt| %>
+          <tr>
+            <td><%= @position %></td>
+            <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.username %></a></td>
+            <td><%= attempt.score %></td>
+          </tr>
+          <% @position = @position + 1 %>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>

@@ -51,7 +51,7 @@
     </section>
 
     <section class="header">
-      <p>sample.js</p>
+      <p><%= @snippet.name %><% if @snippet.language=='javascript' %>.js<% end %><% if @snippet.language=='ruby' %>.rb<% end %></p>
     </section>
 
     <section class="snippet">
