@@ -23,18 +23,19 @@
     <h2>SpeedCoder Leader Board</h3>
 
     <div class="language-score-board">
-      <table border="1" class="table table-striped">
+      <table class="table table-striped">
+        <tr>
+          <th>Snippet Name</th>
+          <th>Username</th>
+          <th>Score</th>
+        </tr>
         <% if @attempts.empty? %>
           <tr>
+            <td> Pos </td>
             <td> No scores </td>
             <td> --------- </td>
           </tr>
         <% else %>
-        <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Score</th>
-        </tr>
           <% @snippets.each do |snippet| %>
             <% @attempts.each do |attempt| %>
               <tr>
