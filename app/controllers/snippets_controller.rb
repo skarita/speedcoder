@@ -4,7 +4,11 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
     body = @snippet.body.delete("\r")
     @array = body.split("").push(" ")
-    # raise
+    
+    @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
+
+    @leaderboard = Attempt.where('snippet_id' => @snippet.id).order('score DESC').limit(10)
+
   end
 
   def new

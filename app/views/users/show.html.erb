@@ -1,49 +1,49 @@
 
 <div class="container users-show-wrapper">
 
+  <h2 class="average-wpm">Your average WPM: <%= @wpm %></h2>
+
+  <h2>Your recent scores</h2>
+  <table class="table table-striped attempts">
+    <tr class="table-col">
+      <th class="name">Name</th>
+      <th class="description">Description</th>
+      <th class="language">Language</th>
+      <th class="body">Body</th>
+      <th class="score">Score (WPM)</th>
+    </tr>
+    <% @attempts.each do |attempt| %>
+      <tr>
+        <td><a href="/snippets/<%= attempt.snippet.id %>"><%= attempt.snippet.name %></a></td>
+        <td><%= attempt.snippet.description[0...100] %></td>
+        <td><a href="/languages/<% attempt.snippet.language %>"><%= attempt.snippet.language %></a></td>
+        <td><a href="/snippets/<%= attempt.snippet.id %>"><%= attempt.snippet.body[0...100] + " ..." %></a></td>
+        <td><%= attempt.score %></td>
+      </tr>
+    <% end %>
+  </table>
+
   <button class="new-snippet btn btn-default">
     <a href="/snippets/new">
       <h3>+ Create new snippet</h3>
     </a>
   </button>
 
-  <h2>Your average WPM: <%= @wpm %></h2>
-
-  <h2>Your recent attempts</h2>
-  <table class="table table-striped attempts">
-    <tr class="table-col">
-      <td class="name">Name</td>
-      <td class="description">Description</td>
-      <td class="language">Language</td>
-      <td class="body">Body</td>
-      <td class="score">Score (WPM)</td>
-    </tr>
-    <% @attempts.each do |attempt| %>
-      <tr>
-        <td><%= attempt.snippet.name %></td>
-        <td><%= attempt.snippet.description[0...100] %></td>
-        <td><%= attempt.snippet.language %></td>
-        <td><%= attempt.snippet.body[0...100] + " ..." %></td>
-        <td><%= attempt.score %></td>
-      </tr>
-    <% end %>
-  </table>
-
   <h2>Your snippets</h2>
   <table class="table table-striped snippets">
     <tr class="table-col">
-      <td class="name">Name</td>
-      <td class="description">Description</td>
-      <td class="language">Language</td>
-      <td class="body">Body</td>
-      <td></td>
+      <th class="name">Name</th>
+      <th class="description">Description</th>
+      <th class="language">Language</th>
+      <th class="body">Body</th>
+      <th></th>
     </tr>
     <% @snippets.each do |snippet| %>
       <tr>
-        <td><%= snippet.name %></td>
+        <td><a href="/snippets/<%= snippet.id %>"><%= snippet.name %></a></td>
         <td><%= snippet.description[0...100] %></td>
-        <td><%= snippet.language %></td>
-        <td><%= snippet.body[0...100] + " ..." %></td>
+        <td><a href="/languages/<%= snippet.language %>"><%= snippet.language %></a></td>
+        <td><a href="/snippets/<%= snippet.id %>"><%= snippet.body[0...100] + " ..." %></a></td>
         <td><a href="/snippets/<%= snippet.id %>/edit">
           <button class="btn btn-default">edit</button>
         </a></td>

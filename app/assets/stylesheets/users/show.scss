@@ -1,4 +1,10 @@
 .users-show-wrapper {
+  margin-top: 2em;
+
+  h2.average-wpm,
+  button.new-snippet {
+    float: right;
+  }
 
   h2 {
     font-size: 2em;
