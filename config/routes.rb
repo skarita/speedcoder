@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   delete '/session', to: 'session#destroy'
 
   get '/', to: 'users#home'
-  get '/snippet/index', to: 'snippets#index'
+  # get '/snippet/index', to: 'snippets#index'
+  get '/languages', to: 'snippets#languages'
+  get '/languages/javascript', to: 'snippets#javascript'
+  get '/languages/ruby', to: 'snippets#ruby'
+  get '/languages/other', to: 'snippets#others'
 end
