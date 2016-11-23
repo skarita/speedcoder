@@ -27,7 +27,7 @@ Snippet.create({
   Snippet.create({
     body: "$(element)\r\n.data('counter', 0) // begin counter at zero\r\n.click(function() {\r\nvar counter = $(this).data('counter'); // get\r\n$(this).data('counter', counter + 1); // set\r\n// do something else...\r\n});",
     name: "Counting Clicks",
-    description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter."
+    description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter.",
     user_id: 1,
     language: "javascript",
     word_count: 23
@@ -37,7 +37,7 @@ Snippet.create({
   body: "function excerpt(str, nwords) {\r\nvar words = str.split(' ');\r\nwords.splice(nwords, words.length-1);\r\nreturn words.join(' ') + \r\n(words.length !== str.split(' ').length ? '&hellip;' : '');\r\n}",
   name: "Reducing text by word limit",
   user_id: 1,
-  description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter."
+  description: "Sometimes you need to know how many times the user clicks on an element. The most common solution is to create a counter as a global variable but with jQuery you can prevent polluting the global scope by using data() to store the counter.",
   word_count: 22
   })
 

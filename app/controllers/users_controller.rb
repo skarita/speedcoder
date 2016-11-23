@@ -39,9 +39,6 @@ class UsersController < ApplicationController
         @errors = "Name #{user.errors[:name][0]}"
         render :new
       end
-      else
-        render :new
-      end
     end
   end
 
