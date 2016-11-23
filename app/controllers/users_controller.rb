@@ -9,9 +9,13 @@ class UsersController < ApplicationController
     end
     wpm_total = Attempt.where(user_id: @user.id).order('id DESC').limit(10).map{ |attempt| attempt.score }.sum
     attempt_count = Attempt.where(user_id: @user.id).order('id DESC').limit(10).count
-    @wpm = wpm_total / attempt_count
+
     @attempts = Attempt.where(user_id: @user.id).order('id DESC').limit(10)
     @snippets = Snippet.where(user_id: @user.id).order('id DESC')
+    if attempt_count > 0
+      @wpm = wpm_total / attempt_count
+    end
+
   end
 
   def new

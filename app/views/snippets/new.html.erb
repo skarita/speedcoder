@@ -1,5 +1,4 @@
 <div class="snippet-new-wrapper">
-
   <%= form_tag '/snippets' , method: 'post' do %>
 
     <div class="snippet-name">
@@ -22,8 +21,8 @@
       <textarea id="snippet-body" name="body" rows="12" cols="80" placeholder="Snippet Code"></textarea>
     </div>
 
-    <div>
-      <button class="snippet-btn">Submit</button>
+    <div class="snippet-btn">
+      <button class="btn btn-default">Submit</button>
     </div>
   <% end %>
 
