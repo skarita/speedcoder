@@ -1,8 +1,12 @@
 class SnippetsController < ApplicationController
 
   def index
-    @snippetsJS = Snippet.where(language: 'javascript')
-    @snippet = Snippet.find(1)
+    @snippets_JS = Snippet.where(language: 'javascript')
+    @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).limit(10)
+
+    @snippets_rb = Snippet.where(language: 'ruby')
+    @attempts_rb = Attempt.joins(:snippet).where(snippets: {language: :ruby }).order(score: :desc).limit(10)
+
   end
 
 
