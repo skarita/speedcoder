@@ -7,49 +7,39 @@
   <div class="snippets-show-wrapper">
 
     <section class="sidebar">
-      <h1 class="page-title">Speedcoder</h1>
 
-      <h3>back to snippets</h3>
-
-      <!-- User -->
-      <h3>paulmorello</h3>
-      <ul>
-        <li>settings</li>
-        <li>sign out</li>
-      </ul>
-
-      <!-- Stat -->
-      <h3>Stats</h3>
-      <ul>
-        <li>WPM: </li>
-      </ul>
+      <h3 class="back-to-snippets"><- back to snippets</h3>
 
       <!-- History -->
       <h3>History</h3>
-      <table>
+      <table class="table table-striped">
         <tr>
-          <td>87wpm</td>
-          <td>7 days ago</td>
+          <th>WPM</th>
+          <th>Time</th>
         </tr>
-        <tr>
-          <td>90wpm</td>
-          <td>2 days ago</td>
-        </tr>
+        <% @history.each do |attempt| %>
+          <tr>
+            <td><%= attempt.score %>wpm</td>
+            <td><%= Time.zone.now.day - attempt.updated_at.day %> day/s ago</td>
+          </tr>
+        <% end %>
       </table>
 
       <!-- Leaderboard -->
-      <h3>leaderboard</h3>
-      <table>
+      <h3>Leaderboard</h3>
+      <table class="table table-striped">
         <tr>
-          <td>1</td>
-          <td><a href="#">Melissa</a></td>
-          <td>100 wpm</td>
+          <th>Pos</th>
+          <th>Player</th>
+          <th>WPM</th>
         </tr>
-        <tr>
-          <td>2</td>
-          <td><a href="#">James</a></td>
-          <td>90wpm</td>
-        </tr>
+        <% @leaderboard.each_with_index do |attempt, i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.name %></a></td>
+            <td><%= attempt.score %>wpm</td>
+          </tr>
+        <% end %>
       </table>
     </section>
 
@@ -67,10 +57,11 @@
         <!-- Modal content -->
         <div class="modal-content">
           <p>WPM: <span></span></p>
-          <a href="/snippets/<%= params[:id] %>">Play again</a>
+          <a href="/snippets/<%= params[:id] %>"><button class="btn btn-default">Play again</button></a>
         </div>
 
       </div>
+
     </section>
 
     <section class="footer">
