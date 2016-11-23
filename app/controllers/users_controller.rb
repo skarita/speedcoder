@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
     wpm_total = Attempt.where(user_id: @user.id).order('id DESC').limit(10).map{ |attempt| attempt.score }.sum
-    @wpm = wpm_total / 10
+    attempt_count = Attempt.where(user_id: @user.id).order('id DESC').limit(10).count
+    @wpm = wpm_total / attempt_count
     @attempts = Attempt.where(user_id: @user.id).order('id DESC').limit(10)
     @snippets = Snippet.where(user_id: @user.id).order('id DESC')
   end
@@ -30,16 +31,14 @@ class UsersController < ApplicationController
     else
       if user.errors[:email][0] != nil
         @errors = "Email #{user.errors[:email][0]}"
-        render :new
-      elsif user.errors[:username][0] != nil
-        @errors = "Username #{user.errors[:username][0]}"
-        render :new
-      elsif user.errors[:name][0] != nil
-        @errors = "Name #{user.errors[:name][0]}"
-        render :new
-      else
-        render :new
       end
+      if user.errors[:username][0] != nil
+        @errors = "Username #{user.errors[:username][0]}"
+      end
+      if user.errors[:name][0] != nil
+        @errors = "Name #{user.errors[:name][0]}"
+      end
+      render :new
     end
   end
 

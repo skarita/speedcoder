@@ -23,4 +23,23 @@ div.snippet-new-wrapper {
     max-width: calc(100% - 45px);
   }
 
+  div.snippet-btn{
+    margin: 5px;
+    display: inline-block;
+  }
+
+  div.snippet-delete-btn {
+    margin: 5px;
+    display: inline-block;
+  }
+
+  div.btns {
+    display: inline-block;
+    margin-top: -10px;
+  }
+
+  button {
+    font-size: 100%;
+  }
+
 }
