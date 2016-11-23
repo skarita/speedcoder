@@ -1,10 +1,14 @@
 class SessionController < ApplicationController
 
   def new
+    if logged_in? redirect_to '/languages'
+
     render :new
   end
 
   def create
+    if logged_in? redirect_to '/languages'
+
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
