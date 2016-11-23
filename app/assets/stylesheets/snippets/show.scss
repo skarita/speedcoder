@@ -1,159 +1,148 @@
-* {
-  box-sizing: border-box;
-}
+div.snippets-show-wrapper {
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  margin: 0;
-}
-
-h1.page-title {
-  margin-bottom: 10px;
-}
-
-body {
   height: 100vh;
   margin: 0;
   font-family: Monofur;
   font-size: 20px;
-}
 
-section{
-  float: left;
-}
+  h1.page-title {
+    margin-bottom: 10px;
+  }
 
-section {
-  /*border: solid 1px black;*/
-}
+  section{
+    float: left;
+  }
 
-section.sidebar {
-  width: 200px;
-  overflow: scroll;
-  height: calc(100% - 20px);
-  padding: 5px;
-  font-size: 15px;
-  border-right: solid 1px grey;
-}
+  section {
+    /*border: solid 1px black;*/
+  }
 
-table, th, td {
-   border: 1px solid black;
-}
+  section.sidebar {
+    width: 200px;
+    overflow: scroll;
+    height: calc(100% - 20px);
+    padding: 5px;
+    font-size: 15px;
+    border-right: solid 1px grey;
+  }
 
-section.header {
-  width: calc(100vw - 200px);
-  height: 30px;
-  padding: 5px;
-  border-bottom: 1px solid black;
+  table, th, td {
+     border: 1px solid black;
+  }
 
-}
+  section.header {
+    width: calc(100vw - 200px);
+    height: 30px;
+    padding: 5px;
+    border-bottom: 1px solid black;
 
-section.snippet {
-  width: calc(100vw - 200px);
-  /*height = 100vh - header - footer*/
-  height: calc(100% - 30px - 20px);
-  overflow: scroll;
-}
+  }
 
-div.snippet-row {
-  height: 100%;
-  width: 30px;
-  float: left;
-  padding: 5px;
-  text-align: right;
-  margin-right: 10px;
-}
+  section.snippet {
+    width: calc(100vw - 200px);
+    /*height = 100vh - header - footer*/
+    height: calc(100% - 30px - 20px);
+    overflow: scroll;
+  }
 
-div.snippet-body {
-  /*height: 100%;*/
-  width: calc(100% - 55px);
-  float: left;
-  padding: 5px;
-  color: grey;
-  /*word-wrap: break-word;*/
-  /*word-break: break-all;*/
-  /*overflow: hidden;*/
-  white-space: nowrap;
-}
+  div.snippet-row {
+    height: 100%;
+    width: 30px;
+    float: left;
+    padding: 5px;
+    text-align: right;
+    margin-right: 10px;
+  }
 
-.snippet span {
-  display: inline;
-  line-height: 20px;
-  width: 10px;
-  max-height: 20px;
-  text-align: center;
-  /*clear: both;*/
-  
-}
+  div.snippet-body {
+    /*height: 100%;*/
+    width: calc(100% - 55px);
+    float: left;
+    padding: 5px;
+    color: grey;
+    /*word-wrap: break-word;*/
+    /*word-break: break-all;*/
+    /*overflow: hidden;*/
+    white-space: nowrap;
+  }
 
-span.return {
-  /*color: transparent;*/
-  /*font-size: 14px;*/
-}
+  .snippet span {
+    display: inline;
+    line-height: 20px;
+    width: 10px;
+    max-height: 20px;
+    text-align: center;
+    /*clear: both;*/
+    
+  }
 
-.lightblue-bg {
-  background-color: lightblue;
-}
+  span.return {
+    /*color: transparent;*/
+    /*font-size: 14px;*/
+  }
 
-.pink-bg {
-  background-color: pink;
-}
+  .lightblue-bg {
+    background-color: lightblue;
+  }
 
-.red-bg {
-  background-color: red;
-}
+  .pink-bg {
+    background-color: pink;
+  }
 
-.black {
-  color: black;
-}
+  .red-bg {
+    background-color: red;
+  }
 
-.red {
-  color: red;
-}
+  .black {
+    color: black;
+  }
 
-section.footer {
-  height: 20px;
-  border-top: solid 1px black;
-  position: fixed;
-  width: 100vw;
-  bottom: 0;
-  background-color: grey;
-}
+  .red {
+    color: red;
+  }
 
-section.footer div.proglang{
-  position: absolute;
-  right: 0;
-}
+  section.footer {
+    height: 20px;
+    border-top: solid 1px black;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    background-color: grey;
+  }
 
-section.footer div.timer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: absolute; /* Stay in place */
-    // z-index: 1; /* Sit on top */
-    // left: 0;
-    top: 0;
-    width: calc(100% - 200px);
-    height: 100%; /* Full height */
-    background-color: rgba(0,0,0,0.1); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: rgba(255,255,255,0.3);
+  section.footer div.proglang{
     position: absolute;
-    top: 50%;
+    right: 0;
+  }
+
+  section.footer div.timer {
+    position: absolute;
     left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 20px;
-    border: 1px solid black;
-    // width: 80%; /* Could be more or less, depending on screen size */
+    transform: translateX(-50%);
+  }
+
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: absolute; /* Stay in place */
+      // z-index: 1; /* Sit on top */
+      // left: 0;
+      top: 0;
+      width: calc(100% - 200px);
+      height: 100%; /* Full height */
+      background-color: rgba(0,0,0,0.1); /* Black w/ opacity */
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+      background-color: rgba(255,255,255,0.3);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: 20px;
+      border: 1px solid black;
+      // width: 80%; /* Could be more or less, depending on screen size */
+  }
+
 }
