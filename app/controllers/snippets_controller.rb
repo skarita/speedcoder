@@ -14,10 +14,29 @@ class SnippetsController < ApplicationController
     end
 
     if !!session[:user_id]
-      @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
+      @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).order('id DESC').limit(3)
+
+      @time_played = []
+      @history.each do |attempt|
+
+        hour_diff = Time.zone.now.hour - attempt.updated_at.hour
+        day_diff = Time.zone.now.day - attempt.updated_at.day
+
+        if hour_diff < 2
+          time_string = "#{hour_diff} hour ago"
+        elsif hour_diff < 24
+          time_string = "#{hour_diff} hours ago"
+        elsif day_diff < 2
+          time_string = "#{day_diff} day ago"
+        else
+          time_string = "#{day_diff} days ago"
+        end
+
+        @time_played.push(time_string)
+      end
     end
 
-    @leaderboard = Attempt.where('snippet_id' => @snippet.id).order('score DESC').limit(10)
+    @leaderboard = Attempt.where('snippet_id' => @snippet.id).order('score DESC').to_a.uniq {|attempt| attempt[:user_id] }[0,10]
 
   end
 
@@ -85,13 +104,13 @@ class SnippetsController < ApplicationController
 
   def languages
     @snippets = Snippet.all
-    @attempts = Attempt.order(score: :desc).limit(10)
+    @attempts = Attempt.order(score: :desc).to_a.uniq {|attempt|  [attempt[:user_id],attempt[:snippet_id]]  }[0,10]
   end
 
   def javascript
     @snippets_JS = Snippet.where(language: 'javascript')
     @snippets_pop = Snippet.joins(:attempts).where(language: 'javascript').group(:id).order("count(*) desc")
-    @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).limit(10)
+    @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).to_a.uniq {|attempt|  [attempt[:user_id],attempt[:snippet_id]]  }[0,10]
   end
 
   def ruby
