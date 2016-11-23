@@ -1,28 +1,55 @@
 
-<div class="wrapper">
+<div class="container users-show-wrapper">
 
+  <button class="new-snippet btn btn-default">
+    <a href="/snippets/new">
+      <h3>+ Create new snippet</h3>
+    </a>
+  </button>
 
-  <div class="snippets">
-    <% @snippets.each do |snippet| %>
-      <h3><%= snippet.name %></h3>
-      <p><%= snippet.description %></p>
-      <p><%= snippet.word_count %></p>
-      <p><%= snippet.language %></p>
-      <p><%= snippet.body[0...100] + " ..." %></p>
-    <% end %>
-  </div>
+  <h2>Your average WPM: <%= @wpm %></h2>
 
-  <div class="attempts">
+  <h2>Your recent attempts</h2>
+  <table class="table table-striped attempts">
+    <tr class="table-col">
+      <td class="name">Name</td>
+      <td class="description">Description</td>
+      <td class="language">Language</td>
+      <td class="body">Body</td>
+      <td class="score">Score (WPM)</td>
+    </tr>
     <% @attempts.each do |attempt| %>
-      <h3><%= attempt.snippet.name %></h3>
-      <p><%= attempt.snippet.language %></p>
-      <p><%= attempt.score %></p>
-      <p><%= attempt.accuracy %></p>
+      <tr>
+        <td><%= attempt.snippet.name %></td>
+        <td><%= attempt.snippet.description[0...100] %></td>
+        <td><%= attempt.snippet.language %></td>
+        <td><%= attempt.snippet.body[0...100] + " ..." %></td>
+        <td><%= attempt.score %></td>
+      </tr>
     <% end %>
-  </div>
+  </table>
 
-  <footer>
-  </footer>
+  <h2>Your snippets</h2>
+  <table class="table table-striped snippets">
+    <tr class="table-col">
+      <td class="name">Name</td>
+      <td class="description">Description</td>
+      <td class="language">Language</td>
+      <td class="body">Body</td>
+      <td></td>
+    </tr>
+    <% @snippets.each do |snippet| %>
+      <tr>
+        <td><%= snippet.name %></td>
+        <td><%= snippet.description[0...100] %></td>
+        <td><%= snippet.language %></td>
+        <td><%= snippet.body[0...100] + " ..." %></td>
+        <td><a href="/snippets/<%= snippet.id %>/edit">
+          <button class="btn btn-default">edit</button>
+        </a></td>
+      </tr>
+    <% end %>
+  </table>
 
 </div>
 

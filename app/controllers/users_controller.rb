@@ -7,8 +7,11 @@ class UsersController < ApplicationController
     if !session[:user_id] && !!@user
       redirect_to '/'
     end
+    wpm_total = Attempt.where(user_id: @user.id).limit(20).map{ |attempt| attempt.score }.sum
+    total_attempts = Attempt.where(user_id: @user.id).limit(20).count
+    @wpm = wpm_total / total_attempts
+    @attempts = Attempt.where(user_id: @user.id).order('id DESC').limit(10)
     @snippets = Snippet.where(user_id: @user.id)
-    @attempts = Attempt.where(user_id: @user.id)
   end
 
   def new
