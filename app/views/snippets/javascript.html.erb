@@ -1,29 +1,46 @@
-<section class="section-js">
-  <div class="list">
+
+  <div class="left-side">
     <h3>JavaScript Snippets</h3>
-    <ul>
-      <% @snippets_JS.each do |js| %>
-      <li><%= link_to( js.name, snippet_path(js)) %></li>
-      <% end %>
-    </ul>
+    <div class="div-snippets-list">
+      <table class="table table-striped">
+        <tr>
+          <th class="column-title">Name</th>
+          <th class="column-title">Description</th>
+        </tr>
+        <% @snippets_JS.each do |js| %>
+          <tr>
+            <td><%= link_to( js.name, snippet_path(js)) %></td>
+            <td><%= js.description %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 
-  <div class="score-board">
-    <h3>JavaScript Score Board</h3>
-    <table border="1">
-      <% if @attempts_JS.empty? %>
+  <div class="right-side">
+    <div class="div-language-score-board">
+      <h3>Score Board</h3>
+      <table class="table table-striped">
         <tr>
+          <th>#</th>
+          <th> Player </th>
+          <th> Score </th>
+        </tr>
+        <% if @attempts_JS.empty? %>
+        <tr>
+          <td>Pos</td>
           <td> No scores </td>
           <td> --------- </td>
         </tr>
-      <% else %>
-        <% @attempts_JS.each do |attempt| %>
+        <% else %>
+          <% @attempts_JS.each do |attempt| %>
           <tr>
+            <td>Pos</td>
             <td><%= attempt.user.name %></td>
             <td><%= attempt.score %></td>
           </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </table>
+      </table>
+    </div>
   </div>
-</section>

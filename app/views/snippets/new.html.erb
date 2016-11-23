@@ -1,15 +1,27 @@
-<%= form_tag '/snippets' , method: 'post' do %>
+<div class="snippet-new-wrapper">
+  <%= form_tag '/snippets' , method: 'post' do %>
+    <div class="snippet-name">
+      <input id="name" name="name" type="text" placeholder="Snippet Name" >
+    </div>
 
-  <input id="name" name="name" type="text" placeholder="Snippet Name" >
+    <div class="snippet-description">
+      <textarea id="description" name="description" placeholder="Description" rows="2" cols="80"></textarea>
+    </div>
 
-  <textarea id="description" name="description" placeholder="Description" rows="8" cols="40"></textarea>
+    <div class="snippet-language">
+      <select id="language" name="language">
+        <option value="javascript">JavaScript</option>
+        <option value="ruby">Ruby</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
 
-  <select id="language" name="language">
-    <option value="javascript">JavaScript</option>
-  </select>
+    <div>
+      <textarea id="snippet-body" name="body" rows="16" cols="80" placeholder="Snippet Code"></textarea>
+    </div>
 
-  <textarea id="snippet-body" name="body" rows="40" cols="40" placeholder="Snippet Code"></textarea>
-
-  <button >Submit</button>
-
-<% end %>
+    <div>
+      <button class="new-snippet-btn">Submit</button>
+    </div>
+  <% end %>
+</div>
