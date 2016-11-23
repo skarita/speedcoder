@@ -2,22 +2,101 @@
 
 <!-- link_to "edit snippet 1" , "/snippets/#{@snippet.id}/edit" , id:'1'
 -->
-<div class="list">
-  <h3>JavaScript Snippets</h3>
-  <ul>
-    <% @snippetsJS.each do |js| %>
-    <li><%= link_to( js.name, snippet_path(js)) %></li>
-    <% end %>
-  </ul>
-</div>
+<section class="section-js">
+  <div class="list">
+    <h3>JavaScript Snippets</h3>
+    <ul>
+      <% @snippets_JS.each do |js| %>
+      <li><%= link_to( js.name, snippet_path(js)) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="score-board">
+    <h3>JavaScript Score Board</h3>
+    <table border="1">
+      <% if @attempts_JS.empty? %>
+        <tr>
+          <td> No scores </td>
+          <td> --------- </td>
+        </tr>
+      <% else %>
+        <% @attempts_JS.each do |attempt| %>
+          <tr>
+            <td><%= attempt.user.name %></td>
+            <td><%= attempt.score %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</section>
+
+<!-- _________________________ Ruby ________________________ -->
+<section class="section-ruby">
+  <div class="list">
+    <h3>Ruby Snippets</h3>
+    <ul>
+      <% @snippets_rb.each do |rb| %>
+      <li><%= link_to( rb.name, snippet_path(rb)) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="score-board">
+    <h3>Ruby Score Board</h3>
+    <table border="1">
+      <% if @attempts_rb.empty? %>
+        <tr>
+          <td> No scores </td>
+          <td> --------- </td>
+        </tr>
+      <% else %>
+        <% @attempts_rb.each do |attempt| %>
+          <tr>
+            <td><%= attempt.user.name %></td>
+            <td><%= attempt.score %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+
+</section>
+
+
 
 <style>
+  .section-js {
+    display: block;
+    width: 100%;
+    background-color: #3e9a82;
+  }
+
+  .section-ruby {
+    display: block;
+    width: 100%;
+    height: 300px;
+    background-color: #f0c79c;
+  }
+
   .list {
+    width: 25%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .list h3{
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .score-board {
+    display: inline-block;
     width: 25%;
     text-align: center;
   }
 
-  .list h3{
+  .score-board h3{
     margin-bottom: 10px;
     font-weight: bold;
   }

@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -51,4 +50,5 @@ class UsersController < ApplicationController
     user.destroy
     redirect_to "/users/#{session[:user_id]}"
   end
+
 end
