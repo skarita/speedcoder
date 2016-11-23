@@ -63,16 +63,19 @@ class SnippetsController < ApplicationController
   end
 
   def javascript
+    @language = 'javascript'
     @snippets_JS = Snippet.where(language: 'javascript')
     @attempts_JS = Attempt.joins(:snippet).where(snippets: {language: :javascript }).order(score: :desc).limit(10)
   end
 
   def ruby
+    @language = 'ruby'
     @snippets_rb = Snippet.where(language: 'ruby')
     @attempts_rb = Attempt.joins(:snippet).where(snippets: {language: :ruby }).order(score: :desc).limit(10)
   end
 
   def others
+    @language = 'other'
     @snippets_other = Snippet.where(language: 'other')
     @attempts_other = Attempt.joins(:snippet).where(snippets: {language: :other }).order(score: :desc).limit(10)
   end
