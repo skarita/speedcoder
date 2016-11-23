@@ -44,7 +44,7 @@ class SnippetsController < ApplicationController
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save
-      redirect_to "/snippets/#{snippet.id}"
+      redirect_to "/snippets/#{@snippet.id}"
     else
       render :edit
     end
