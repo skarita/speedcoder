@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
     wpm_total = Attempt.where(user_id: @user.id).order('id DESC').limit(10).map{ |attempt| attempt.score }.sum
-    @wpm = wpm_total / 10
+    attempt_count = Attempt.where(user_id: @user.id).order('id DESC').limit(10).count
+    @wpm = wpm_total / attempt_count
     @attempts = Attempt.where(user_id: @user.id).order('id DESC').limit(10)
     @snippets = Snippet.where(user_id: @user.id)
   end
