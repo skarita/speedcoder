@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     wpm_total = Attempt.where(user_id: @user.id).order('id DESC').limit(10).map{ |attempt| attempt.score }.sum
     @wpm = wpm_total / 10
     @attempts = Attempt.where(user_id: @user.id).order('id DESC').limit(10)
-    @snippets = Snippet.where(user_id: @user.id)
+    @snippets = Snippet.where(user_id: @user.id).order('id DESC')
   end
 
   def new
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     if params[:password] != ''
       user.password = params[:password]
     end
-    
+
     if user.save
       redirect_to "/users/#{session[:user_id]}"
     else
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
     if session[:user_id] != params[:id].to_i
       redirect_to '/'
     end
-    
+
     user = User.find(params[:id])
     user.destroy
     redirect_to "/users/#{session[:user_id]}"

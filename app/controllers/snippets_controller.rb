@@ -64,11 +64,11 @@ class SnippetsController < ApplicationController
 
   def destroy
     snippet = Snippet.find(params[:id])
-    if session[:user_id] != @snippet.user_id
+    if session[:user_id] != snippet.user_id
       redirect_to '/'
     end
     snippet.destroy
-    redirect_to "/snippets"
+    redirect_to "/users/#{session[:user_id]}"
   end
 
   def languages
