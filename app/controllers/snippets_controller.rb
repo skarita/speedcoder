@@ -14,6 +14,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
+    redirect_to '/languages' unless !session[:user_id]
 
   end
 
@@ -35,8 +36,6 @@ class SnippetsController < ApplicationController
 
   def edit
     @snippet = Snippet.find(params[:id])
-
-
   end
 
   def update
