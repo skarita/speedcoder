@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     if user.save
       session[:user_id] = user.id
+
       redirect_to '/languages'
     else
       if user.errors[:email][0] != nil
@@ -64,6 +65,7 @@ class UsersController < ApplicationController
     end
 
     if user.save
+      flash[:success] = "Your account was updated successfully"
       redirect_to "/users/#{session[:user_id]}"
     else
       render :edit
@@ -77,6 +79,7 @@ class UsersController < ApplicationController
 
     user = User.find(params[:id])
     user.destroy
+    flash[:success] = "Your account was updated successfully"
     redirect_to "/users/#{session[:user_id]}"
   end
 
