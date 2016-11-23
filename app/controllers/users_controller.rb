@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     end
     @snippets = Snippet.where(user_id: @user.id)
     @attempts = Attempt.where(user_id: @user.id)
-
   end
 
   def new
