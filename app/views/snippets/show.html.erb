@@ -8,7 +8,7 @@
 
     <section class="sidebar">
 
-      <h3 class="back-to-snippets"><- back to snippets</h3>
+      <h3 class="back-to-snippets"><a href="/languages/<%= @snippet.language %>"><- back to snippets</a></h3>
 
       <!-- History -->
       <h3>History</h3>
@@ -36,7 +36,7 @@
         <% @leaderboard.each_with_index do |attempt, i| %>
           <tr>
             <td><%= i+1 %></td>
-            <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.name %></a></td>
+            <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.username %></a></td>
             <td><%= attempt.score %>wpm</td>
           </tr>
         <% end %>

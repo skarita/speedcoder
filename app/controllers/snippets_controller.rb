@@ -25,7 +25,7 @@ class SnippetsController < ApplicationController
     snippet.word_count = snippet.body.scan(/[[:alpha:]]+/).count
 
     if snippet.save
-      redirect_to "/snippets"
+      redirect_to "/snippets/#{snippet.id}"
     else
       render :new
     end
@@ -44,7 +44,7 @@ class SnippetsController < ApplicationController
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save
-      redirect_to "/snippets"
+      redirect_to "/snippets/#{snippet.id}"
     else
       render :edit
     end
@@ -59,7 +59,6 @@ class SnippetsController < ApplicationController
   def languages
     @snippets = Snippet.all
     @attempts = Attempt.order(score: :desc).limit(10)
-
   end
 
   def javascript
