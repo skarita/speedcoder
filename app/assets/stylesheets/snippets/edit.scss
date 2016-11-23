@@ -3,6 +3,7 @@ div.snippet-new-wrapper {
   font-family: Monofur;
   font-size: 20px;
   padding-left: 8px;
+  max-width: 100%;
 
   div.snippet-name {
     margin: 5px;
@@ -19,6 +20,7 @@ div.snippet-new-wrapper {
 
   div.snippet-body {
     margin: 5px;
+    max-width: calc(100% - 45px);
   }
 
 }

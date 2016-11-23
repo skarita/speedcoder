@@ -4,7 +4,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
     body = @snippet.body.delete("\r")
     @array = body.split("").push(" ")
-    
+
     @history = Attempt.where('user_id' => User.find(session[:user_id]).id, 'snippet_id' => @snippet.id).limit(3)
 
     @leaderboard = Attempt.where('snippet_id' => @snippet.id).order('score DESC').limit(10)
@@ -42,7 +42,7 @@ class SnippetsController < ApplicationController
     @snippet.user_id = session[:user_id]
     @snippet.body = params[:body]
     @snippet.language = params[:language]
-    @snippet.word_count = params[:word_count]
+    @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save
       redirect_to "/snippets/#{snippet.id}"
     else
@@ -58,8 +58,7 @@ class SnippetsController < ApplicationController
 
   def languages
     @snippets = Snippet.all
-    @attempts = Attempt.joins(:snippet).all.order(score: :desc).limit(10)
-
+    @attempts = Attempt.order(score: :desc).limit(10)
   end
 
   def javascript
