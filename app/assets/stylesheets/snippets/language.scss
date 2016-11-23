@@ -1,0 +1,76 @@
+
+.section-language {
+  margin-top: 10%;
+  height: 100%;
+}
+
+.div-snippets-list {
+  width: 90%;
+  height: 80%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.table {
+
+}
+
+.table-striped {
+
+}
+
+.column-title {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.div-language-score-board {
+  margin: 0 auto;
+  height: 60%;
+  width: 70%;
+}
+.left-side {
+  width: 50%;
+  height: 90vh;
+  float: left;
+  padding-top: 2em;
+}
+
+.right-side {
+  width: 50%;
+  height: 90vh;
+  float: left;
+  padding-top: 2em;
+}
+
+.left-side h3{
+  height: 2em;
+  font-size: 2em;
+  text-align: center;
+}
+
+.right-side h3{
+  height: 2em;
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 6px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+border: 1px solid #292e47;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: #292e47;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #2a4c79;
+}
