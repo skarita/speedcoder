@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
 
-      redirect_to '/languages'
+      redirect_to '/languages', notice: "User created successfully!"
     else
       if user.errors[:email][0] != nil
         @errors = "Email #{user.errors[:email][0]}"
