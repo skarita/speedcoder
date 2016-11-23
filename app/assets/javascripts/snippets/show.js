@@ -128,6 +128,7 @@ $("body").keypress(function(event) {
       error_count = next_char_count(error_count);
       $char_elem(count).addClass("pink-bg");
     }
+    checkScrollPosition($char_elem(count));
   }
   // Conditions for winning
   if (count >= snippet_length && error_count === 0 && game_start) {
@@ -167,4 +168,12 @@ function start_game() {
 function openModal() {
   var $modal = $('#winModal');
   $modal.css('display','block');
+}
+
+function checkScrollPosition($span) {
+  if ( $span.offset().top > $(document).height() -50) {
+    $('.snippet').animate({
+        scrollTop: $('.snippet').scrollTop() + $(document).height()/1.3
+    });
+  }
 }
