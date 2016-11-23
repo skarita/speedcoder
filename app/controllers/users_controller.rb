@@ -39,7 +39,10 @@ class UsersController < ApplicationController
     user.email = params[:email]
     user.name = params[:name]
     user.username = params[:username]
-    user.password = params[:password]
+    if params[:password] != ''
+      user.password = params[:password]
+    end
+    
     if user.save
       redirect_to "/users/#{session[:user_id]}"
     else
