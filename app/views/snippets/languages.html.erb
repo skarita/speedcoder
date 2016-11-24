@@ -31,6 +31,7 @@
     <div class="language-score-board">
       <table class="table table-striped">
         <tr>
+          <th>#</th>
           <th>Snippet Name</th>
           <th>Username</th>
           <th>Score</th>
@@ -42,12 +43,15 @@
             <td> --------- </td>
           </tr>
         <% else %>
+          <% @position = 1 %>
           <% @attempts.each do |attempt| %>
             <tr>
+              <td><%= @position %></td>
               <td><%= link_to(attempt.snippet.name, snippet_path(attempt.snippet.id)) %></td>
               <td><%= attempt.user.username %></td>
               <td><%= attempt.score %></td>
             </tr>
+            <% @position = @position + 1 %>
           <% end %>
         <% end %>
       </table>
