@@ -30,9 +30,10 @@ class UsersController < ApplicationController
 
     if user.save
       session[:user_id] = user.id
-
-      redirect_to '/languages', notice: "User created successfully!"
+      flash[:success] = "Signed up successfully"
+      redirect_to '/languages'
     else
+      flash[:danger] = "Something went wrong. Try again."
       if user.errors[:email][0] != nil
         @errors = "Email #{user.errors[:email][0]}"
       end
@@ -71,6 +72,7 @@ class UsersController < ApplicationController
       flash[:success] = "Your account was updated successfully"
       redirect_to "/users/#{session[:user_id]}"
     else
+      flash[:danger] = "Something went wrong. Try again."
       render :edit
     end
   end
@@ -82,7 +84,7 @@ class UsersController < ApplicationController
 
     user = User.find(params[:id])
     user.destroy
-    flash[:success] = "Your account was updated successfully"
+    flash[:warning] = "Your account was deleted successfully"
     redirect_to "/users/#{session[:user_id]}"
   end
 
