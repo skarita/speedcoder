@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @user.username = params[:username]
     @user.password = params[:password]
 
+
     @errors = {}
     if @user.save
       session[:user_id] = @user.id
@@ -36,10 +37,11 @@ class UsersController < ApplicationController
 
       redirect_to '/languages'
     else
-      flash[:danger] = "Something went wrong. Try again."
+
       @user.errors.messages.each do |key, value|
         if value.any?
           @errors[key] = '*' + value.join(', ')
+          flash[:danger] = "Something went wrong. Try again."
         end
       end
       render :new
