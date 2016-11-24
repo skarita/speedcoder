@@ -63,11 +63,22 @@
       <div id="winModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
+          <p>Finish!</p>
           <p>WPM: <span></span></p>
+          <br>
           <a href="/snippets/<%= params[:id] %>"><button class="btn btn-default playagain">Play again</button></a>
           <% if !session[:user_id] %>
             <a href="/users/new"><button class="btn btn-default signup">Sign up to save your scores</button></a>
           <% end %>
+        </div>
+
+      </div>
+
+      <!-- The Modal -->
+      <div id="errorModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <p>Error. Press backspace key.</p>
         </div>
 
       </div>
