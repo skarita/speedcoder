@@ -11,8 +11,7 @@ class SessionController < ApplicationController
       flash[:success] = "Logged in successfully"
       redirect_to "/users/#{session[:user_id]}"
     else
-      flash[:danger] = "Login or password incorrect. Try again"
-      render :new
+      redirect_to session_new_path, danger: "Login or password incorrect. Try again"
     end
   end
 
