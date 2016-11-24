@@ -135,6 +135,7 @@ div.snippets-show-wrapper {
       width: calc(100%);
       height: 100%; /* Full height */
       background-color: rgba(100,100,100,0.1); /* Black w/ opacity */
+      z-index: 20;
   }
 
   /* Modal Content/Box */
@@ -146,7 +147,8 @@ div.snippets-show-wrapper {
       transform: translate(-50%,-50%);
       padding: 20px;
       border: 1px solid black;
-      width: 15em; /* Could be more or less, depending on screen size */
+      width: 18em; /* Could be more or less, depending on screen size */
+      text-align: center;
   }
 
   #winModal .modal-content p {
@@ -154,8 +156,12 @@ div.snippets-show-wrapper {
     display: inline-block;
   }
 
-  #winModal .modal-content button {
+  button.playagain {
       float: right;
+  }
+
+  button.signup {
+      margin-top: 5px;
   }
 
 }

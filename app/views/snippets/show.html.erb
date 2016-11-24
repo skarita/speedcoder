@@ -64,7 +64,10 @@
         <!-- Modal content -->
         <div class="modal-content">
           <p>WPM: <span></span></p>
-          <a href="/snippets/<%= params[:id] %>"><button class="btn btn-default">Play again</button></a>
+          <a href="/snippets/<%= params[:id] %>"><button class="btn btn-default playagain">Play again</button></a>
+          <% if !session[:user_id] %>
+            <a href="/users/new"><button class="btn btn-default signup">Sign up to save your scores</button></a>
+          <% end %>
         </div>
 
       </div>
