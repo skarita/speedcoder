@@ -100,7 +100,14 @@ nav button.btn {
 
 .alert {
   position: fixed;
-  width: 80%;
+  width: 60%;
+  margin: 0 20%;
+}
+.alert-danger{
+  background-color: rgba(246, 153, 153, 0.6);
+}
+.alert-success{
+  background-color: rgba(149, 255, 160, 0.6);
 }
 
 @media (max-width: 768px) {
