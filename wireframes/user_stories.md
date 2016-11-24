@@ -1,0 +1,22 @@
+#User-Stories
+
+The following user-stories have been developed as an agile method to better
+understand users of the site:
+
+##Story 1.
+"As a *DEVELOPER*, I want to *INCREASE MY TYPING SPEED*, so I can *INCREASE MY PRODUCTIVITY AT WORK*."
+
+##Story 2.
+"As an *EMPLOYER*, I want my *EMPLOYEES TO INCREASE TYPING SPEED WITH OUR PROGRAMMING LANGUAGES*, so they can *WRITE CODE FASTER*."
+
+##Story 3.
+"As a *JUNIOR DEVELOPER*, I want to *WRITE RELEVANT SNIPPETS OF CODE*, so I can *TO VIEW DIFFERENT PROGRAMMING LANGUAGES*."
+
+##Story 4.
+"As a *STUDENT*, I want to *DEVELOP A PROPER KEYBOARD TECHNIQUE*, so I can *PREPARE MYSELF FOR THE USE OF TECHNOLOGY*."
+
+##Story 5.
+"As a *UNIVERSITY*, I want to *PREPARE OUR STUDENTS TYPING ABILITY*, so I can *GIVE THEM THE PROPER PREPARATION FOR THE WORKFORCE*."
+
+##Story 6.
+"As a *DEVELOPER*, I want to *LEARN NEW SKILLS WHILE I TYPE*, so I can *IMPROVE MY JAVASCRIPT SKILLS*."

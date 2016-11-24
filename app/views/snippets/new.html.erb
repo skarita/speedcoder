@@ -3,15 +3,16 @@
     <%= form_tag '/snippets' , method: 'post' do %>
 
       <div class="snippet-name form-group">
-        <input id="name" class="form-control" name="name" type="text" placeholder="Snippet Name" >
+        <input id="name" class="" name="name" type="text" placeholder="Snippet Name" >
       </div>
 
       <div class="snippet-description form-group">
-        <textarea id="description" class="form-control" type="text" name="description" placeholder="Description" rows="2" cols="80"></textarea>
+        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="2" cols="80"></textarea>
       </div>
 
-      <div class="snippet-language form-group">
-        <select id="language-new" class="form-control" name="language">
+      <div class="snippet-language">
+        <span class="fancyArrow"></span>
+        <select id="language-new" class="" name="language">
           <option value="javascript">JavaScript</option>
           <option value="ruby">Ruby</option>
           <option value="other">Other</option>
@@ -19,11 +20,11 @@
       </div>
 
       <div class="snippet-body form-group">
-        <textarea id="snippet-body" class="form-control" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"></textarea>
+        <textarea id="snippet-body" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"></textarea>
       </div>
 
       <div class="snippet-btn">
-        <button class="btn btn-default">Submit</button>
+        <button class="btn-snippet">Submit</button>
       </div>
     <% end %>
   </div>
