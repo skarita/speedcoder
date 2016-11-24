@@ -74,6 +74,7 @@ $("body").keydown(function(event) {
     else {
       $char_elem(count).addClass("lightblue-bg");
     }
+    checkScrollPosition($char_elem(count));
   }
 });
 
@@ -171,9 +172,32 @@ function openModal() {
 }
 
 function checkScrollPosition($span) {
-  if ( $span.offset().top > $(document).height() -50) {
+  if ( $span.offset().top > $(document).height() -60) {
     $('.snippet').animate({
-        scrollTop: $('.snippet').scrollTop() + $(document).height()/1.3
+        scrollTop: $('.snippet').scrollTop() + $('.snippet').height()/1.3
+    });
+  }
+
+  if ( $span.offset().top < 90) {
+    $('.snippet').animate({
+        scrollTop: $('.snippet').scrollTop() - $('.snippet').height()/3
+    });
+  }
+
+  if ( $span.offset().left > $(document).width() - 50) {
+    $('.snippet').animate({
+        scrollLeft: $('.snippet').scrollLeft() + $('.snippet').width()/1.3
+    });
+  }
+
+  if ( $span.offset().left < 200) {
+    $('.snippet').animate({
+        scrollLeft: $('.snippet').scrollLeft() - $('.snippet').width()/1.3
     });
   }
 }
+
+$('.snippet').scroll(function(event) {
+  $('#winModal').css('top', $('.snippet').scrollTop());
+  $('#winModal').css('left', $('.snippet').scrollLeft());
+});
