@@ -70,12 +70,16 @@ Details are in the '/wireframes' folder
 1. Working in a team environment introduced some differences in coding style and knowledge in different functions and libraries. This required some extra time for other members to learn but enabled team members to expand their knowledge and understanding of new tools.
 2. Lots of time spent playing table tennis
 
-###Paul Morello
+### Paul Morello
 * Understanding what each team member is doing and ensuring each person is being utilised efficiently.
 * Managing changes from multiple people.
 * Accounting for each individuals working style (planning time, feature importance etc..).
 * Learning to use SASS efficiently to optimise CSS.
 * Finding a consistent CSS style across the website.
+
+### Sean Karita
+* Working in a team environment requires good co-ordination and understanding of everyone's tasks for the project to be built efficiently.
+* Trello was used to organize all the features that needed to be implemented and members assigned themselves to the tasks.
 
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
