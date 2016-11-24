@@ -79,9 +79,10 @@ Details are in the '/wireframes' folder
 
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
-2. Improving general design, themes, colors
-3. Using ajax to update page with user score upon finishing a snippet
-4. Multiplayer gaming
+1. Improving general design, themes, colors
+1. Using ajax to update page with user score upon finishing a snippet
+1. Multiplayer gaming
+1. Updating of WPM during gameplay
 
 ## Deployment instructions
 ```

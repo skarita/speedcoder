@@ -63,9 +63,7 @@ class SnippetsController < ApplicationController
     snippet.description = params[:description]
     snippet.name = params[:name]
     snippet.user_id = session[:user_id]
-    snippet.body = params[:body].split("\n").map do |line|
-                      line.rstrip
-                  end.join("\n").strip
+    snippet.body = params[:body].split("\n").map{|line|line.rstrip}.join("\n").strip
     snippet.language = params[:language]
     snippet.word_count = snippet.body.scan(/[[:alpha:]]+/).count
 
@@ -98,9 +96,7 @@ class SnippetsController < ApplicationController
     @snippet.description = params[:description]
     @snippet.name = params[:name]
     @snippet.user_id = session[:user_id]
-    @snippet.body = params[:body].split("\n").map do |line|
-                      line.rstrip
-                  end.join("\n").strip
+    @snippet.body = params[:body].split("\n").map{|line|line.rstrip}.join("\n").strip
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save

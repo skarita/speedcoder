@@ -116,6 +116,7 @@ footer a {
 footer a:hover {
   background-color: $secondary-color;
   color: $primary-color;
+  text-decoration: none;
 }
 
 @media (max-width: 650px) {
