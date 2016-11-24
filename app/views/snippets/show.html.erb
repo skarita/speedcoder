@@ -23,10 +23,10 @@
             <th>WPM</th>
             <th>Time</th>
           </tr>
-          <% @history.each do |attempt| %>
+          <% @history.each_with_index do |attempt, i| %>
             <tr>
               <td><%= attempt.score %>wpm</td>
-              <td><%= Time.zone.now.day - attempt.updated_at.day %> day/s ago</td>
+              <td><%= @time_played[i] %></td>
             </tr>
           <% end %>
         </table>
