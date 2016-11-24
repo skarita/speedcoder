@@ -1,4 +1,8 @@
 <div class="snippet-new-wrapper">
+  <div class="back-btn">
+    <button class="btn-back" onclick="history.go(-1)">Go Back</button>
+  </div>
+
   <div class="snippet-new-form">
     <%= form_tag '/snippets' , method: 'post' do %>
 
@@ -7,7 +11,7 @@
       </div>
 
       <div class="snippet-description form-group">
-        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="2" cols="80"></textarea>
+        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="1" cols="60"></textarea>
       </div>
 
       <div class="snippet-language">
@@ -20,7 +24,7 @@
       </div>
 
       <div class="snippet-body form-group">
-        <textarea id="snippet-body" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"></textarea>
+        <textarea id="snippet-body" type="text" name="body" rows="8" cols="60" placeholder="Snippet Code"></textarea>
       </div>
 
       <div class="snippet-btn">
