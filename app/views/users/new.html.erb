@@ -7,14 +7,16 @@
 
   <div class="user-forms">
 
-    <h3><%= @errors %></h3>
-
     <%= form_tag '/users', method: 'post' do%>
 
       <input type="text" name="name" placeholder="Name">
+      <p class="danger"><%= @errors[:name] %></p>
       <input type="email" name="email" placeholder="Email">
+      <p class="danger"><%= @errors[:email] %></p>
       <input type="text" name="username" placeholder="Username">
+      <p class="danger"><%= @errors[:username] %></p>
       <input type="password" name="password" placeholder="Password">
+      <p class="danger"><%= @errors[:password] %></p>
       <button>Sign Up</button>
 
     <% end %>

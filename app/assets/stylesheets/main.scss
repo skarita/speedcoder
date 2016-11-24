@@ -61,7 +61,7 @@ nav button.btn {
 
 .user-forms button {
   display: block;
-  margin: 0 auto;
+  margin: 1em auto;
   border: none;
   border-radius: 2px;
   color: $primary-color;
@@ -91,6 +91,11 @@ nav button.btn {
   border: none;
   width: 100%;
   background-color: $secondary-color;
+}
+
+.danger {
+  font-size: .7em;
+  color: red;
 }
 
 @media (max-width: 768px) {
