@@ -1,46 +1,88 @@
-div.snippet-new-wrapper {
-  margin: 0;
-  font-family: Monofur;
-  font-size: 20px;
-  padding-left: 8px;
-  max-width: 100%;
+.snippet-new-wrapper {
+  width: 100%;
+  font-family: Menlo;
 
-  div.snippet-name {
-    margin: 5px;
-    margin-top: 13px;
+  .snippet-new-form {
+    width: 90%;
+    margin: 0 auto;
   }
 
-  div.snippet-description {
-    margin: 5px;
+  .form-control {
+    margin: 20px 0px;
   }
 
-  div.snippet-language {
-    margin: 5px;
-    margin-top: -10px;
-  }
-
-  div.snippet-body {
-    margin: 5px;
-    max-width: calc(100% - 45px);
+  #language-new {
+    font-family: Menlo;
+    margin-top: 30px;
   }
 
   div.snippet-btn{
     margin: 5px;
     display: inline-block;
+    font-family: 'Jaldi', sans-serif;
   }
 
   div.snippet-delete-btn {
     margin: 5px;
     display: inline-block;
+    font-family: 'Jaldi', sans-serif;
+    font-size: 120%;
   }
 
   div.btns {
     display: inline-block;
     margin-top: -10px;
   }
-
-  button {
-    font-size: 100%;
-  }
-
 }
+
+
+
+// .snippet-new-wrapper {
+//   margin: 0;
+//   font-family: Monofur;
+//   font-size: 1em;
+//   max-width: 100%;
+//
+//   .form-group {
+//     margin: 20px 0;
+//   }
+
+  // div.snippet-name {
+  //   margin: 5px;
+  //   margin-top: 13px;
+  // }
+  //
+  // div.snippet-description {
+  //   margin: 5px;
+  // }
+  //
+  // div.snippet-language {
+  //   margin: 5px;
+  //   margin-top: -10px;
+  // }
+  //
+  // div.snippet-body {
+  //   margin: 5px;
+  //   max-width: calc(100% - 45px);
+  // }
+  //
+  // div.snippet-btn{
+  //   margin: 5px;
+  //   display: inline-block;
+  // }
+  //
+  // div.snippet-delete-btn {
+  //   margin: 5px;
+  //   display: inline-block;
+  // }
+  //
+  // div.btns {
+  //   display: inline-block;
+  //   margin-top: -10px;
+  // }
+  //
+  // button {
+  //   font-size: 100%;
+  // }
+//
+// }
