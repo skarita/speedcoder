@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speedcoder</title>
     <%= csrf_meta_tags %>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+  
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -18,7 +19,9 @@
 
     <!-- Navigation -->
     <%= render 'layouts/navbar' %>
+    <!-- Flash messages -->
     <%= render 'layouts/messages' %>
+    <!-- Main content -->
     <%= yield %>
 
   </body>

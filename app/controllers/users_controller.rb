@@ -38,12 +38,12 @@ class UsersController < ApplicationController
     else
       flash[:danger] = "Something went wrong. Try again."
       @user.errors.messages.each do |key, value|
-      if value.any?
-        @errors[key] = '*' + value.join(', ')
+        if value.any?
+          @errors[key] = '*' + value.join(', ')
+        end
       end
+      render :new
     end
-  end
-  render :new
   end
 
   def edit
