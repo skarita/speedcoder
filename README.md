@@ -37,7 +37,7 @@ Utilised for DOM manipulation for user interaction with the site
 Responsive site and navbar. Consistent styling of components.
 
 #### Ruby on Rails
-Web application framework 
+Web application framework
 
 #### ActiveRecord
 
@@ -59,6 +59,13 @@ Web application framework
 ## Wireframes
 
 ## Challenges
+
+###Paul Morello
+* Understanding what each team member is doing and ensuring each person is being utilised efficiently.
+* Managing changes from multiple people.
+* Accounting for each individuals working style (planning time, feature importance etc..).
+* Learning to use SASS efficiently to optimise CSS.
+* Finding a consistent CSS style across the website.
 
 ## Future works
 
