@@ -98,6 +98,11 @@ nav button.btn {
   color: red;
 }
 
+.alert {
+  position: fixed;
+  width: 80%;
+}
+
 @media (max-width: 768px) {
   .user-forms {
     width: 15em;
