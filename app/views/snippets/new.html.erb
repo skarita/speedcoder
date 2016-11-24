@@ -3,24 +3,24 @@
     <%= form_tag '/snippets' , method: 'post' do %>
 
       <div class="snippet-name form-group">
-        <input id="name" class="" name="name" type="text" placeholder="Snippet Name" >
+        <input id="name" class="" name="name" type="text" placeholder="Snippet Name" value="<%= @snippet.name %>" >
       </div>
 
       <div class="snippet-description form-group">
-        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="2" cols="80"></textarea>
+        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="2" cols="80"><%= @snippet.description %></textarea>
       </div>
 
       <div class="snippet-language">
         <span class="fancyArrow"></span>
-        <select id="language-new" class="" name="language">
-          <option value="javascript">JavaScript</option>
-          <option value="ruby">Ruby</option>
-          <option value="other">Other</option>
+        <select id="language-new" class="" name="language"  >
+          <option value="javascript" <% if @snippet.language == 'javascript' %> selected <% end %> >JavaScript</option>
+          <option value="ruby" <% if @snippet.language == 'ruby' %> selected <% end %>>Ruby</option>
+          <option value="other" <% if @snippet.language == 'other' %> selected <% end %>>Other</option>
         </select>
       </div>
 
       <div class="snippet-body form-group">
-        <textarea id="snippet-body" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"></textarea>
+        <textarea id="snippet-body" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"> <%= @snippet.body %></textarea>
       </div>
 
       <div class="snippet-btn">
