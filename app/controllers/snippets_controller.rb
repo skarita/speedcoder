@@ -19,17 +19,32 @@ class SnippetsController < ApplicationController
       @time_played = []
       @history.each do |attempt|
 
-        hour_diff = Time.zone.now.hour - attempt.updated_at.hour
-        day_diff = Time.zone.now.day - attempt.updated_at.day
+        sec_diff = (Time.zone.now - attempt.updated_at).floor
+        minute_diff = (sec_diff / 60).floor
+        hour_diff = (minute_diff / 60).floor
+        day_diff = (hour_diff / 24).floor
+        year_diff = (day_diff / 365).floor
 
-        if hour_diff < 2
+        if sec_diff < 2
+          time_string = "#{sec_diff} second ago"
+        elsif sec_diff < 60
+          time_string = "#{sec_diff} seconds ago"
+        elsif minute_diff < 2
+          time_string = "#{minute_diff} minute ago"
+        elsif minute_diff < 60
+          time_string = "#{minute_diff} minutes ago"
+        elsif hour_diff < 2
           time_string = "#{hour_diff} hour ago"
         elsif hour_diff < 24
           time_string = "#{hour_diff} hours ago"
         elsif day_diff < 2
           time_string = "#{day_diff} day ago"
-        else
+        elsif day_diff < 365
           time_string = "#{day_diff} days ago"
+        elsif year_diff < 2
+          time_string = "#{year_diff} year ago"
+        else
+          time_string = "#{year_diff} years ago"
         end
 
         @time_played.push(time_string)
