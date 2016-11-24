@@ -17,6 +17,8 @@
         <p class="danger"><%= @errors[:username] %></p>
         <input type="password" name="password" placeholder="New password? Type it here" value="">
         <p class="danger"><%= @errors[:password] %></p>
+        <input type="password" name="password_confirmation" placeholder="Password confirmation">
+        <p class="danger"><%= @errors[:password_confirmation] %></p>
         <button>Update</button>
 
       <% end %>
