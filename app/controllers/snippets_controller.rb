@@ -56,7 +56,6 @@ class SnippetsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -71,8 +70,10 @@ class SnippetsController < ApplicationController
     snippet.word_count = snippet.body.scan(/[[:alpha:]]+/).count
 
     if snippet.save
+      flash[:success] = "Snippet added successfully"
       redirect_to "/snippets/#{snippet.id}"
     else
+      flash[:danger] = "Something went wrong. Try again"
       render :new
     end
   end
@@ -81,6 +82,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
 
     if session[:user_id] != @snippet.user_id
+      flash[:success] = "Snippet added successfully"
       redirect_to '/'
     end
 
@@ -102,8 +104,10 @@ class SnippetsController < ApplicationController
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
     if @snippet.save
+      flash[:success] = "Snippet updated successfully"
       redirect_to "/snippets/#{@snippet.id}"
     else
+      flash[:danger] = "Something went wrong. Try again"
       render :edit
     end
   end
@@ -114,6 +118,7 @@ class SnippetsController < ApplicationController
       redirect_to '/'
     end
     snippet.destroy
+    flash[:success] = "Snippet removed successfully"
     redirect_to "/users/#{session[:user_id]}"
   end
 
