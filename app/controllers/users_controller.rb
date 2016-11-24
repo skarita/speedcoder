@@ -19,32 +19,31 @@ class UsersController < ApplicationController
   end
 
   def new
+    @errors = {}
   end
 
   def create
-    user = User.new
-    user.email = params[:email]
-    user.name = params[:name]
-    user.username = params[:username]
-    user.password = params[:password]
+    @user = User.new
+    @user.email = params[:email]
+    @user.name = params[:name]
+    @user.username = params[:username]
+    @user.password = params[:password]
 
-    if user.save
-      session[:user_id] = user.id
+    @errors = {}
+    if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Signed up successfully"
+
       redirect_to '/languages'
     else
       flash[:danger] = "Something went wrong. Try again."
-      if user.errors[:email][0] != nil
-        @errors = "Email #{user.errors[:email][0]}"
+      @user.errors.messages.each do |key, value|
+      if value.any?
+        @errors[key] = '*' + value.join(', ')
       end
-      if user.errors[:username][0] != nil
-        @errors = "Username #{user.errors[:username][0]}"
-      end
-      if user.errors[:name][0] != nil
-        @errors = "Name #{user.errors[:name][0]}"
-      end
-      render :new
     end
+  end
+  render :new
   end
 
   def edit
