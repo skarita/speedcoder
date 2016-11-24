@@ -6,18 +6,21 @@
         <tr>
           <th  class="column-title">Name</th>
           <th class="column-title">Description</th>
+          <th class="column-title">Word Count</th>
         </tr>
-        <% @snippets_pop.each do |js| %>
-          <tr class='clickable-row' data-href='/snippets/<%= js.id %>'>
-            <td><%= link_to( js.name, snippet_path(js)) %></td>
-            <td><%= truncate(js.description, length: 100) %></td>
+        <% @snippets_pop.each do |attempt| %>
+          <tr class='clickable-row' data-href='/snippets/<%= attempt.id %>'>
+            <td><%= link_to( attempt.name, snippet_path(attempt)) %></td>
+            <td><%= truncate(attempt.description, length: 100) %></td>
+            <td><%= attempt.word_count %></td>
           </tr>
         <% end %>
-        <% @snippets_JS.each do |js| %>
-          <% if !@snippets_pop.include? js%>
-            <tr class='clickable-row' data-href='/snippets/<%= js.id %>'>
-              <td><%= link_to( js.name, snippet_path(js)) %></td>
-              <td><%= truncate(js.description, length: 100) %></td>
+        <% @snippets.each do |attempt| %>
+          <% if !@snippets_pop.include? attempt%>
+            <tr class='clickable-row' data-href='/snippets/<%= attempt.id %>'>
+              <td><%= link_to( attempt.name, snippet_path(attempt)) %></td>
+              <td><%= truncate(attempt.description, length: 100) %></td>
+              <td><%= attempt.word_count %></td>
             </tr>
           <% end %>
         <% end %>
@@ -32,23 +35,24 @@
         <tr>
           <th>#</th>
           <th> Username </th>
+          <th> Snippet </th>
           <th> Score </th>
         </tr>
-        <% if @attempts_JS.empty? %>
+        <% if @attempts.empty? %>
         <tr>
+          <td> --- </td>
           <td> --- </td>
           <td> No entries </td>
           <td> --------- </td>
         </tr>
         <% else %>
-          <% @position = 1 %>
-          <% @attempts_JS.each do |attempt| %>
+          <% @attempts.each_with_index do |attempt, index| %>
           <tr>
-            <td><%= @position %></td>
+            <td><%= index+1 %></td>
             <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.username %></a></td>
+            <td><%= link_to( attempt.snippet.name, snippet_path(attempt.snippet)) %></td>
             <td><%= attempt.score %></td>
           </tr>
-          <% @position = @position + 1 %>
           <% end %>
         <% end %>
       </table>
