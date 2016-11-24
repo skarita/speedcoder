@@ -47,8 +47,8 @@
           <% @attempts.each do |attempt| %>
             <tr>
               <td><%= @position %></td>
-              <td><%= link_to(attempt.snippet.name, snippet_path(attempt.snippet.id)) %></td>
-              <td><%= attempt.user.username %></td>
+              <td><%= link_to(attempt.snippet.name, snippet_path(attempt.snippet)) %></td>
+              <td><%= link_to(attempt.user.username, user_path(attempt.user)) %></td>
               <td><%= attempt.score %></td>
             </tr>
             <% @position = @position + 1 %>
