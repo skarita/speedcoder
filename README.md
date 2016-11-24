@@ -77,6 +77,22 @@ Details are in the '/wireframes' folder
 * Learning to use SASS efficiently to optimise CSS.
 * Finding a consistent CSS style across the website.
 
+### Sean Karita
+##### Challenges:
+* Learning to use libraries like bootstrap.
+* Thankfully, I have a very knowledgable team to answer any questions throughout the project.
+
+##### Things learnt:
+* It’s been a real privilege to work with everyone on my team.
+* I’ve learnt so much more working together in a team than on my own.
+* Looking after github, 300+ commits kept me busy. Learnt more about git like fixing merge conflicts.
+* Learnt a lot through pair programming, writing the methods for the rails controllers and Pedro showed me useful atom packages and keyboard shortcuts.
+* Used the seed.rb file to populate the database.
+
+##### Interesting technologies:
+* Paul showed me how to work with bootstrap and SASS.
+* Pedro using the partials to improve code readability.
+
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
 1. Improving general design, themes, colors
