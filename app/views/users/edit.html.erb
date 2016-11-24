@@ -10,9 +10,13 @@
       <%= form_tag user_path , method: 'patch' do %>
 
         <input type="text" name="name" placeholder="Name" value="<%= @user.name %>">
+        <p class="danger"><%= @errors[:name] %></p>
         <input type="email" name="email" placeholder="Email" value="<%= @user.email %>">
+        <p class="danger"><%= @errors[:email] %></p>
         <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+        <p class="danger"><%= @errors[:username] %></p>
         <input type="password" name="password" placeholder="New password? Type it here" value="">
+        <p class="danger"><%= @errors[:password] %></p>
         <button>Update</button>
 
       <% end %>
