@@ -34,6 +34,9 @@ Enable nesting of element properties to apply separate scss files to different v
 #### Bootstrap
 Responsive site and navbar. Consistent styling of components (eg. buttons, inputs, modals).
 
+#### Ruby on Rails
+Web application framework
+
 #### jQuery
 Utilised for DOM manipulation for user interaction with the site
 
@@ -66,6 +69,13 @@ Details are in the '/wireframes' folder
 ## Challenges
 1. Working in a team environment introduced some differences in coding style and knowledge in different functions and libraries. This required some extra time for other members to learn but enabled team members to expand their knowledge and understanding of new tools.
 2. Lots of time spent playing table tennis
+
+###Paul Morello
+* Understanding what each team member is doing and ensuring each person is being utilised efficiently.
+* Managing changes from multiple people.
+* Accounting for each individuals working style (planning time, feature importance etc..).
+* Learning to use SASS efficiently to optimise CSS.
+* Finding a consistent CSS style across the website.
 
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
