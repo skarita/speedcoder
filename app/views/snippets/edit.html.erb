@@ -3,28 +3,30 @@
     <%= form_tag snippet_path , method: 'patch' do %>
 
       <div class="snippet-name form-group">
-        <input id="name" class="form-control" name="name" type="text" value="<%= @snippet.name %>" placeholder="Snippet Name" >
+        <input id="name" class="" name="name" type="text" value="<%= @snippet.name %>" placeholder="Snippet Name" >
       </div>
 
       <div class="snippet-description form-group">
-        <textarea id="description" class="form-control" type="text" name="description" placeholder="Description" rows="2" cols="80"><%= @snippet.description %></textarea>
+        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="2" cols="80"><%= @snippet.description %></textarea>
       </div>
 
-      <div class="snippet-language form-group">
-        <select id="language" class="form-control" name="language" value="<%= @snippet.language %>">
-          <option value="javascript">JavaScript</option>
+      <div class="snippet-language">
+        <span class="fancyArrow"></span>
+        <select id="language" class="" name="language" value="<%= @snippet.language %>">
+          <option value="javascript">JavaScript</option><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
           <option value="ruby">Ruby</option>
           <option value="other">Other</option>
+
         </select>
       </div>
 
       <div class="snippet-body form-group">
-        <textarea id="snippet-body" class="form-control" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"><%= @snippet.body %></textarea>
+        <textarea id="snippet-body" class="" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"><%= @snippet.body %></textarea>
       </div>
 
       <div class="btns">
         <div class="snippet-btn">
-          <button class="btn btn-default">Update</button>
+          <button class="btn-snippet">Update</button>
         </div>
 
     <% end %>
@@ -32,7 +34,7 @@
       <div class="snippet-delete-btn">
         <%= form_tag snippet_path , method: 'delete' do %>
 
-          <button class="btn btn-default">Delete</button>
+          <button class="btn-snippet">Delete</button>
         <% end %>
 
       </div>
