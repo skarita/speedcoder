@@ -52,6 +52,7 @@ class UsersController < ApplicationController
     end
 
     @user = User.find(params[:id])
+    @errors = {}
   end
 
   def update
@@ -59,19 +60,31 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
 
-    user = User.find(params[:id])
-    user.email = params[:email]
-    user.name = params[:name]
-    user.username = params[:username]
+    @user = User.find(params[:id])
+    if @user.email != params[:email]
+      @user.email = params[:email]
+    end
+    if @user.name != params[:name]
+      @user.name = params[:name]
+    end
+    if @user.username != params[:username]
+      @user.username = params[:username]
+    end
     if params[:password] != ''
-      user.password = params[:password]
+      @user.password = params[:password]
     end
 
-    if user.save
+    @errors = {}
+    if @user.save
       flash[:success] = "Your account was updated successfully"
       redirect_to "/users/#{session[:user_id]}"
     else
       flash[:danger] = "Something went wrong. Try again."
+      @user.errors.messages.each do |key, value|
+        if value.any?
+          @errors[key] = '*' + value.join(', ')
+        end
+      end
       render :edit
     end
   end
