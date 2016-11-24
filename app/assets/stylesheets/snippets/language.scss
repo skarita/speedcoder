@@ -1,4 +1,8 @@
 
+.language-container {
+  width: 100%;
+}
+
 .section-language {
   margin-top: 10%;
   height: 100%;
@@ -32,18 +36,9 @@
 
 }
 
-.table {
-
-}
-
-.table-striped {
-
-}
-
 .column-title {
   text-align: center;
 }
-
 
 .div-language-score-board {
   margin: 0 auto;
@@ -51,17 +46,19 @@
   width: 70%;
 }
 .left-side {
-  width: 50%;
+  width: 60%;
   height: 90vh;
   float: left;
   padding-top: 2em;
+  margin: 2em auto;
 }
 
 .right-side {
-  width: 50%;
+  width: 40%;
   height: 90vh;
   float: left;
   padding-top: 2em;
+  margin: 2em auto;
 }
 
 .left-side h3{
