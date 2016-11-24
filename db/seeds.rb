@@ -33,7 +33,6 @@ Snippet.create({
   word_count: 23
 })
 
-
 Snippet.create({
   body: "function excerpt(str, nwords) {\r\nvar words = str.split(' ');\r\nwords.splice(nwords, words.length-1);\r\nreturn words.join(' ') + \r\n(words.length !== str.split(' ').length ? '&hellip;' : '');\r\n}",
   name: "Reducing text by word limit",
@@ -51,3 +50,10 @@ Snippet.create({
   language: "other",
   word_count: 23
 })
+
+User.create({
+  name: "kings",
+  email: "kings@ga.co",
+  username: "kings",
+  password_digest: "kings"
+  })

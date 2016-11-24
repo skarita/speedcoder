@@ -32,10 +32,11 @@ class UsersController < ApplicationController
     @errors = {}
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "Signed up successfully"
 
       redirect_to '/languages'
     else
-
+      flash[:danger] = "Something went wrong. Try again."
       @user.errors.messages.each do |key, value|
       if value.any?
         @errors[key] = '*' + value.join(', ')
@@ -67,8 +68,10 @@ class UsersController < ApplicationController
     end
 
     if user.save
+      flash[:success] = "Your account was updated successfully"
       redirect_to "/users/#{session[:user_id]}"
     else
+      flash[:danger] = "Something went wrong. Try again."
       render :edit
     end
   end
@@ -80,6 +83,7 @@ class UsersController < ApplicationController
 
     user = User.find(params[:id])
     user.destroy
+    flash[:warning] = "Your account was deleted successfully"
     redirect_to "/users/#{session[:user_id]}"
   end
 
