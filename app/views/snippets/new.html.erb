@@ -8,10 +8,12 @@
 
       <div class="snippet-name form-group">
         <input id="name" class="" name="name" type="text" placeholder="Snippet Name" value="<%= @snippet.name %>" >
+        <p class="danger"><%= @errors[:name] %></p>
       </div>
 
       <div class="snippet-description form-group">
         <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="1" cols="60"><%= @snippet.description %></textarea>
+        <p class="danger"><%= @errors[:description] %></p>
       </div>
 
       <div class="snippet-language">
@@ -21,10 +23,12 @@
           <option value="ruby" <% if @snippet.language == 'ruby' %> selected <% end %>>Ruby</option>
           <option value="other" <% if @snippet.language == 'other' %> selected <% end %>>Other</option>
         </select>
+        <p class="danger"><%= @errors[:language] %></p>
       </div>
 
       <div class="snippet-body form-group">
         <textarea id="snippet-body" type="text" name="body" rows="8" cols="60" placeholder="Snippet Code"> <%= @snippet.body %></textarea>
+        <p class="danger"><%= @errors[:body] %></p>
       </div>
 
       <div class="snippet-btn">

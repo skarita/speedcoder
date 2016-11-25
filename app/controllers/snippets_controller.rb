@@ -56,6 +56,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
+    @errors = {}
     @snippet = Snippet.new
   end
 
@@ -71,19 +72,20 @@ class SnippetsController < ApplicationController
     @errors = {}
     if @snippet.save
       flash[:success] = "Snippet added successfully"
-      redirect_to "/snippets/#{snippet.id}"
+      redirect_to "/snippets/#{@snippet.id}"
     else
       @snippet.errors.messages.each do |key, value|
         if value.any?
           @errors[key] = '*' + value.join(', ')
-          flash[:danger] = "Something went wrong. Try again."
         end
       end
+      flash[:danger] = "Something went wrong. Try again."
       render :new
     end
   end
 
   def edit
+    @errors = {}
     @snippet = Snippet.find(params[:id])
 
     if session[:user_id] != @snippet.user_id && User.find(session[:user_id]).username != "kings"
@@ -105,11 +107,18 @@ class SnippetsController < ApplicationController
     @snippet.body = params[:body].split("\n").map{|line|line.rstrip}.join("\n").strip
     @snippet.language = params[:language]
     @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
+
+    @errors = {}
     if @snippet.save
       flash[:success] = "Snippet updated successfully"
       redirect_to "/snippets/#{@snippet.id}"
     else
-      flash[:danger] = "Something went wrong. Try again"
+      @snippet.errors.messages.each do |key, value|
+        if value.any?
+          @errors[key] = '*' + value.join(', ')
+        end
+      end
+      flash[:danger] = "Something went wrong. Try again."
       render :edit
     end
   end
