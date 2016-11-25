@@ -10,20 +10,23 @@
           <th  class="column-title">Name</th>
           <th class="column-title">Description</th>
           <th class="column-title">Word Count</th>
+          <th class="column-title"># Players played</th>
         </tr>
-        <% @snippets_pop.each do |attempt| %>
-          <tr class='clickable-row' data-href='/snippets/<%= attempt.id %>'>
-            <td><%= link_to( attempt.name, snippet_path(attempt)) %></td>
-            <td><%= truncate(attempt.description, length: 100) %></td>
-            <td><%= attempt.word_count %></td>
+        <% @snippets_pop.each do |snippet| %>
+          <tr class='clickable-row' data-href='/snippets/<%= snippet.id %>'>
+            <td><%= link_to( snippet.name, snippet_path(snippet)) %></td>
+            <td><%= truncate(snippet.description, length: 100) %></td>
+            <td><%= snippet.word_count %></td>
+            <td><%= snippet.users_played %></td>
           </tr>
         <% end %>
-        <% @snippets.each do |attempt| %>
-          <% if !@snippets_pop.include? attempt%>
-            <tr class='clickable-row' data-href='/snippets/<%= attempt.id %>'>
-              <td><%= link_to( attempt.name, snippet_path(attempt)) %></td>
-              <td><%= truncate(attempt.description, length: 100) %></td>
-              <td><%= attempt.word_count %></td>
+        <% @snippets.each do |snippet| %>
+          <% if !@snippets_pop.include? snippet%>
+            <tr class='clickable-row' data-href='/snippets/<%= snippet.id %>'>
+              <td><%= link_to( snippet.name, snippet_path(snippet)) %></td>
+              <td><%= truncate(snippet.description, length: 100) %></td>
+              <td><%= snippet.word_count %></td>
+              <td><%= snippet.users_played %></td>
             </tr>
           <% end %>
         <% end %>
