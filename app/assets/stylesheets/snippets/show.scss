@@ -1,3 +1,8 @@
+$header-font: 'Luckiest Guy', sans-serif;
+$font-stack: 'Jaldi', sans-serif;
+$primary-color: #ffffff;
+$secondary-color: #276DC2;
+
 div.snippets-show-wrapper {
 
   height: calc(100vh - 50px);
@@ -20,6 +25,7 @@ div.snippets-show-wrapper {
     padding: 5px;
     font-size: 15px;
     border-right: solid 1px gray;
+    background-color: light;
     background-color: rgba(150,150,150,.1);
   }
 
@@ -113,6 +119,10 @@ div.snippets-show-wrapper {
     color: red;
   }
 
+  .timer {
+    color: $primary-color;
+  }
+
   section.footer {
     height: 50px;
     padding: 5px;
@@ -120,7 +130,7 @@ div.snippets-show-wrapper {
     position: fixed;
     width: 100vw;
     bottom: 0;
-    background-color: gray;
+    background-color: $secondary-color;
   }
 
   section.footer div.timer {
