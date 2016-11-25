@@ -47,7 +47,7 @@ Used to access data from PostgreSQL with specified filters and sorting functions
 Used for password hashing and confirmation for secure user access.
 
 #### NPM
-Node.js is compiled before Ruby to user browserify and html-entities npm packages
+Node.js is compiled before Ruby to user [browserify](https://github.com/substack/node-browserify) and [html-entities](https://github.com/threedaymonk/htmlentities) npm packages
 
 #### Browserify
 Enables usage of require()

@@ -18,7 +18,7 @@
       <th class="name">Name</th>
       <th class="description">Description</th>
       <th class="language">Language</th>
-      <th class="body">Body</th>
+      <th class="word-count">Word Count</th>
       <th class="score">Score (WPM)</th>
     </tr>
     <% @attempts.each do |attempt| %>
@@ -26,14 +26,14 @@
         <td><a href="/snippets/<%= attempt.snippet.id %>"><%= attempt.snippet.name %></a></td>
         <td><%= attempt.snippet.description[0...100] %></td>
         <td><a href="/languages/<% attempt.snippet.language %>"><%= attempt.snippet.language %></a></td>
-        <td><a href="/snippets/<%= attempt.snippet.id %>"><%= attempt.snippet.body[0...100] + " ..." %></a></td>
-        <td><%= attempt.score %></td>
+        <td><a href="/snippets/<%= attempt.snippet.id %>"><%= attempt.snippet.word_count %></a></td>
+        <td class="word-count-column"><%= attempt.score %></td>
       </tr>
     <% end %>
   </table>
 
   <% if @user.id == session[:user_id] %>
-    <button class="new-snippet btn btn-default">
+    <button class="new-snippet btn btn-default btn-back-snippets">
       <a href="/snippets/new">
         <h3>+ Create new snippet</h3>
       </a>
@@ -50,7 +50,7 @@
       <th class="name">Name</th>
       <th class="description">Description</th>
       <th class="language">Language</th>
-      <th class="body">Body</th>
+      <th class="word-count">Word Count</th>
       <% if @user.id == session[:user_id] %>
         <th></th>
       <% end %>
@@ -60,7 +60,7 @@
         <td><a href="/snippets/<%= snippet.id %>"><%= snippet.name %></a></td>
         <td><a href="/snippets/<%= snippet.id %>"><%= snippet.description[0...100] %></a></td>
         <td><a href="/languages/<%= snippet.language %>"><%= snippet.language %></a></td>
-        <td><a href="/snippets/<%= snippet.id %>"><%= snippet.body[0...100] + " ..." %></a></td>
+        <td class="word-count-column"><a href="/snippets/<%= snippet.id %>"><%= snippet.word_count %></a></td>
         <% if @user.id == session[:user_id] %>
         <td><a href="/snippets/<%= snippet.id %>/edit">
           <button class="btn btn-default">edit</button>

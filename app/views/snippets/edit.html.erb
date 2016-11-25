@@ -1,4 +1,8 @@
 <div class="snippet-new-wrapper">
+  <div class="back-btn">
+    <a href="/users/<%= current_user.id %>"><button class="btn-back">Back To Your Profile</button></a>
+  </div>
+
   <div class="snippet-new-form">
     <%= form_tag snippet_path , method: 'patch' do %>
 
@@ -7,7 +11,7 @@
       </div>
 
       <div class="snippet-description form-group">
-        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="2" cols="80"><%= @snippet.description %></textarea>
+        <textarea id="description" class="" type="text" name="description" placeholder="Description" rows="1" cols="60"><%= @snippet.description %></textarea>
       </div>
 
       <div class="snippet-language">
@@ -21,7 +25,7 @@
       </div>
 
       <div class="snippet-body form-group">
-        <textarea id="snippet-body" class="" type="text" name="body" rows="12" cols="80" placeholder="Snippet Code"><%= @snippet.body %></textarea>
+        <textarea id="snippet-body" class="" type="text" name="body" rows="8" cols="60" placeholder="Snippet Code"><%= @snippet.body %></textarea>
       </div>
 
       <div class="btns">

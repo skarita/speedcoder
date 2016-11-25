@@ -16,22 +16,30 @@ div.snippets-show-wrapper {
     // height: 100%;
     width: 200px;
     overflow: scroll;
-    height: calc(100% - 30px);
+    height: calc(100% - 50px);
     padding: 5px;
     font-size: 15px;
     border-right: solid 1px gray;
+    background-color: rgba(150,150,150,.1);
   }
 
   h3.back-to-snippets {
     margin: .5em auto;
   }
 
+  .sidebar table {
+    width: 100%;
+  }
+
   .sidebar td,
   .sidebar th {
     padding: 2px;
+    word-wrap: break-word;
+    max-width: 90px;
   }
 
   section.header {
+    background-color: rgba(150,150,150,.1);
     width: calc(100vw - 200px);
     height: 35px;
     padding: 5px;
@@ -41,8 +49,8 @@ div.snippets-show-wrapper {
 
   section.snippet {
     width: calc(100vw - 200px);
-    /*height = 100vh - header - footer*/
-    height: calc(100% - 30px - 35px);
+    /*height = 100vh - footer - header*/
+    height: calc(100% - 50px - 35px);
     overflow: scroll;
     position: relative;
     font-family: Menlo;
@@ -106,17 +114,13 @@ div.snippets-show-wrapper {
   }
 
   section.footer {
-    height: 30px;
+    height: 50px;
+    padding: 5px;
     border-top: solid 1px black;
     position: fixed;
     width: 100vw;
     bottom: 0;
     background-color: gray;
-  }
-
-  section.footer div.proglang{
-    position: absolute;
-    right: 0;
   }
 
   section.footer div.timer {
@@ -147,7 +151,7 @@ div.snippets-show-wrapper {
       transform: translate(-50%,-50%);
       padding: 20px;
       border: 1px solid black;
-      width: 18em; /* Could be more or less, depending on screen size */
+      width: 19em; /* Could be more or less, depending on screen size */
       text-align: center;
   }
 
@@ -156,12 +160,32 @@ div.snippets-show-wrapper {
     display: inline-block;
   }
 
-  button.playagain {
-      float: right;
+  #winModal .modal-content button {
+    margin: 5px;
   }
 
-  button.signup {
-      margin-top: 5px;
+  /* The Modal (background) */
+  #errorModal {
+      display: none; /* Hidden by default */
+      position: absolute; /* Stay in place */
+      // z-index: 1; /* Sit on top */
+      // left: 0;
+      top: 0;
+      width: calc(100%);
+      height: 100%; /* Full height */
+      z-index: 20;
   }
 
+  /* Modal Content/Box */
+  #errorModal .modal-content {
+      background-color: rgba(255,150,150,0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: 20px;
+      border: 1px solid black;
+      width: 20em; /* Could be more or less, depending on screen size */
+      text-align: center;
+  }
 }

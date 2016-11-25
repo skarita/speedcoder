@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def new
     @errors = {}
+    @user = User.new
   end
 
   def create
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.username = params[:username]
     @user.password = params[:password]
-
+    @user.password_confirmation = params[:password_confirmation]
 
     @errors = {}
     if @user.save
@@ -62,17 +63,12 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
 
-    @user = User.find(params[:id])
-    if @user.email != params[:email]
-      @user.email = params[:email]
-    end
-    if @user.name != params[:name]
-      @user.name = params[:name]
-    end
-    if @user.username != params[:username]
-      @user.username = params[:username]
-    end
+    @user = User.find(session[:user_id])
+    @user.email = params[:email]
+    @user.name = params[:name]
+    @user.username = params[:username]
     if params[:password] != ''
+      @user.password_confirmation = params[:password_confirmation]
       @user.password = params[:password]
     end
 
