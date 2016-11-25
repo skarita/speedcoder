@@ -72,7 +72,7 @@ class SnippetsController < ApplicationController
     @errors = {}
     if @snippet.save
       flash[:success] = "Snippet added successfully"
-      redirect_to "/snippets/#{snippet.id}"
+      redirect_to "/snippets/#{@snippet.id}"
     else
       @snippet.errors.messages.each do |key, value|
         if value.any?
