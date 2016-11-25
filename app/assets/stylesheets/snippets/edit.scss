@@ -13,19 +13,23 @@ $secondary-color: #276DC2;
   }
   .snippet-new-form input {
     display: block;
-    padding: 20px;
+    padding: 18px;
     border: none;
     width: 100%;
-    margin: 10px 0px;
+    margin: 6px 0px;
     border-bottom: 2px solid $secondary-color;
+  }
+
+  .snippet-language {
+    margin: 4px 0px;
   }
 
   .snippet-description textarea {
     display: block;
-    padding: 20px;
+    padding: 18px;
     border: none;
     width: 100%;
-    margin: 10px 0px;
+    margin: 6px 0px;
     border-bottom: 2px solid $secondary-color;
   }
 
@@ -76,7 +80,6 @@ $secondary-color: #276DC2;
   .btn-snippet {
     display: inline;
     float: left;
-    margin: 1em auto;
     border: none;
     border-radius: 2px;
     color: $primary-color;
@@ -84,8 +87,7 @@ $secondary-color: #276DC2;
     padding: 20px;
     width: 200px;
     font-size: 1.2em;
-    margin-left: 1em;
-    margin-top: 0.1em;
+    margin: 0.1em 0em 0em 1em;
   }
 
   .btn-snippet:hover {
