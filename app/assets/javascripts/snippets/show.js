@@ -193,7 +193,7 @@ function checkDisplayErrorModal(error_count) {
 }
 
 function checkScrollPosition($span) {
-  if ( $span.offset().top > $(document).height() -60) {
+  if ( $span.offset().top > $(document).height() - 80) {
     $('.snippet').animate({
         scrollTop: $('.snippet').scrollTop() + $('.snippet').height()/1.3
     });
