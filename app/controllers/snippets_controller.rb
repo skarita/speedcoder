@@ -56,7 +56,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
-    @error = {}
+    @errors = {}
     @snippet = Snippet.new
   end
 
