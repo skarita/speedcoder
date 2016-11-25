@@ -11,6 +11,7 @@
           <th class="column-title">Description</th>
           <th class="column-title">Word Count</th>
           <th class="column-title"># Players played</th>
+          <th></th>
         </tr>
         <% @snippets_pop.each do |snippet| %>
           <tr class='clickable-row' data-href='/snippets/<%= snippet.id %>'>
@@ -18,6 +19,7 @@
             <td><%= truncate(snippet.description, length: 100) %></td>
             <td><%= snippet.word_count %></td>
             <td><%= snippet.users_played %></td>
+            <td><button class="btn btn-default">Play</button></td>
           </tr>
         <% end %>
         <% @snippets.each do |snippet| %>
@@ -27,6 +29,7 @@
               <td><%= truncate(snippet.description, length: 100) %></td>
               <td><%= snippet.word_count %></td>
               <td><%= snippet.users_played %></td>
+              <td><button class="btn btn-default">Play</button></td>
             </tr>
           <% end %>
         <% end %>
