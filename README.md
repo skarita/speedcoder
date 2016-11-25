@@ -79,7 +79,8 @@ Details are in the '/wireframes' folder
 
 ### Sean Karita
 * Working in a team environment requires good co-ordination and understanding of everyone's tasks for the project to be built efficiently.
-* Trello was used to organize all the features that needed to be implemented and members assigned themselves to the tasks.
+* Trello was used to keep our project organized so we knew what each member of our team was working on and when it was completed.
+* Using the bootstrap's responsive layout features whilst customizing it to our own style.
 
 ### Pedro Araujo
 * Dealing with CSS alignment.

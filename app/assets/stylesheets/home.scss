@@ -69,6 +69,45 @@ $secondary-color: #276DC2;
 .home-middle {
   width: 100%;
   background-color: $primary-color;
+  display: inline-block;
+}
+.js-logo {
+  width: 31%;
+  display: inline-block;
+  text-align: center;
+}
+.js-heading {
+  margin-bottom: -10px;
+}
+
+// .js-logo img {
+//   width: 80%
+// }
+
+.ruby-logo {
+  width: 31%;
+  display: inline-block;
+  text-align: center;
+  height: 100px;
+  vertical-align: center;
+}
+.ruby-heading {
+  display: block;
+  vertical-align: bottom;
+  margin-bottom: -4px;
+
+}
+.ruby-logo img {
+  margin-top: 30px;
+}
+
+.other-logo {
+  width: 32%;
+  display: inline-block;
+  text-align: center;
+}
+.other-heading {
+  margin-bottom: -4px;
 }
 
 .home-middle-left {
@@ -145,9 +184,25 @@ footer a:hover {
   .home-middle-left {
     display: block;
     width: 100%;
+
   }
 
   .home-middle-left img {
     width: 100%;
+  }
+
+  .js-logo {
+    width: 30%;
+
+    // img {
+    //   width: 150px;
+    //   height: 150px;
+    // }
+  }
+  .ruby-logo {
+    width: 30%;
+  }
+  .other-logo {
+    width: 32%;
   }
 }
