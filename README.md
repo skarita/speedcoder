@@ -26,7 +26,7 @@ The goal of this project is to build a website that enables users to practice ty
 
 ## Technologies used
 
-#### HTML, CSS, Javascript, Ruby on Rails, PostgreSQL, Heroku
+#### HTML, CSS, Javascript, Ruby on Rails, BCrypt, PostgreSQL, Heroku
 
 #### SCSS
 Enable nesting of element properties to apply separate scss files to different views. Enabled the usage of variables for simple updates to site color themes. Used partials for font imports.
@@ -34,17 +34,11 @@ Enable nesting of element properties to apply separate scss files to different v
 #### Bootstrap
 Responsive site and navbar. Consistent styling of components (eg. buttons, inputs, modals).
 
-#### Ruby on Rails
-Web application framework
-
 #### jQuery
 Utilised for DOM manipulation for user interaction with the site
 
 #### ActiveRecord
 Used to access data from PostgreSQL with specified filters and sorting functions for displaying accurate data on the website.
-
-#### BCrypt
-Used for password hashing and confirmation for secure user access.
 
 #### NPM
 Node.js is compiled before Ruby to user [browserify](https://github.com/substack/node-browserify) and [html-entities](https://github.com/threedaymonk/htmlentities) npm packages
@@ -67,6 +61,12 @@ Enables usage of require()
 Details are in the '/wireframes' folder
 
 ## Challenges
+### Sean Karita
+* Working in a team environment requires good co-ordination and understanding of everyone's tasks for the project to be built efficiently.
+* Trello was used to keep our project organized so we knew what each member of our team was working on and when it was completed.
+* Using the bootstrap's responsive layout features whilst customizing it to our own style.
+
+### James Mah
 1. Working in a team environment introduced some differences in coding style and knowledge in different functions and libraries. This required some extra time for other members to learn but enabled team members to expand their knowledge and understanding of new tools.
 2. Lots of time spent playing table tennis
 
@@ -77,11 +77,6 @@ Details are in the '/wireframes' folder
 * Learning to use SASS efficiently to optimise CSS.
 * Finding a consistent CSS style across the website.
 
-### Sean Karita
-* Working in a team environment requires good co-ordination and understanding of everyone's tasks for the project to be built efficiently.
-* Trello was used to keep our project organized so we knew what each member of our team was working on and when it was completed.
-* Using the bootstrap's responsive layout features whilst customizing it to our own style.
-
 ### Pedro Araujo
 * Dealing with CSS alignment.
 * Creating a feature to show flash messages for successful and unsuccessful operations.
@@ -89,11 +84,9 @@ Details are in the '/wireframes' folder
 * Learning to use SASS.
 * Understanding how to use Partials in Rails.
 
-
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
-1. Improving general design, themes, colors
-1. Using ajax to update page with user score upon finishing a snippet
+1. Using ajax to update page with user score upon finishing a snippet, and less page reloads
 1. Multiplayer gaming
 1. Updating of WPM during gameplay
 
