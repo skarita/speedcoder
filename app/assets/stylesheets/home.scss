@@ -79,6 +79,10 @@ $secondary-color: #276DC2;
 .js-heading {
   margin-bottom: -10px;
 }
+.home-middle-left h5 {
+  font-weight: bold;
+  font-size: 1.2em
+}
 
 // .js-logo img {
 //   width: 80%
@@ -127,9 +131,14 @@ $secondary-color: #276DC2;
   width: 80%;
   margin: 2%;
 }
-
+.home-middle-right h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
 .home-middle-left p {
   padding: 2em;
+  padding-top: 1em;
+  font-size: 1.1em;
 }
 
 footer {
@@ -184,7 +193,6 @@ footer a:hover {
   .home-middle-left {
     display: block;
     width: 100%;
-
   }
 
   .home-middle-left img {
