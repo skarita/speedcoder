@@ -82,9 +82,12 @@ Details are in the '/wireframes' folder
 * Trello was used to organize all the features that needed to be implemented and members assigned themselves to the tasks.
 
 ### Pedro Araujo
-* Deal with CSS alignment and position of multiple items
-* Create a feature to show flash messages for successful and unsuccessful operations.
-* Create a password confirmation feature
+* Dealing with CSS alignment.
+* Creating a feature to show flash messages for successful and unsuccessful operations.
+* Creating a password confirmation feature.
+* Learning to use SASS.
+* Understanding how to use Partials in Rails.
+
 
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
