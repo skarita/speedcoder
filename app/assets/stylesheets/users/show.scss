@@ -13,7 +13,7 @@
 
   button.new-snippet {
     margin: .5em;
-  }  
+  }
 
   th.name {
     width: 8em;
@@ -22,10 +22,19 @@
     min-width: 8em;
   }
   th.language {
-    
+
   }
-  th.body {
-    min-width: 8em;
+  th.word-count tr{
+    min-width: 6em;
+    background-color: blue;
+  }
+
+  th.score {
+    text-align: center;  
+  }
+
+  .word-count-column {
+    text-align:center;
   }
 
 
