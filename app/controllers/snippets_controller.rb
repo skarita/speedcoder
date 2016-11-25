@@ -56,22 +56,29 @@ class SnippetsController < ApplicationController
   end
 
   def new
+    @snippet = Snippet.new
   end
 
   def create
-    snippet = Snippet.new
-    snippet.description = params[:description]
-    snippet.name = params[:name]
-    snippet.user_id = session[:user_id]
-    snippet.body = params[:body].split("\n").map{|line|line.rstrip}.join("\n").strip
-    snippet.language = params[:language]
-    snippet.word_count = snippet.body.scan(/[[:alpha:]]+/).count
+    @snippet = Snippet.new
+    @snippet.description = params[:description]
+    @snippet.name = params[:name]
+    @snippet.user_id = session[:user_id]
+    @snippet.body = params[:body].split("\n").map{|line|line.rstrip}.join("\n").strip
+    @snippet.language = params[:language]
+    @snippet.word_count = @snippet.body.scan(/[[:alpha:]]+/).count
 
-    if snippet.save
+    @errors = {}
+    if @snippet.save
       flash[:success] = "Snippet added successfully"
       redirect_to "/snippets/#{snippet.id}"
     else
-      flash[:danger] = "Something went wrong. Try again"
+      @snippet.errors.messages.each do |key, value|
+        if value.any?
+          @errors[key] = '*' + value.join(', ')
+          flash[:danger] = "Something went wrong. Try again."
+        end
+      end
       render :new
     end
   end
