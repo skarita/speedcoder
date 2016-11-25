@@ -10,10 +10,10 @@
 
       <h3 class="btn-back-snippets"><a href="/languages/<%= @snippet.language %>"><- back to snippets</a></h3>
 
-      <p><%= @snippet.name %></p>
+      <p><b><%= @snippet.name %></b></p>
       <p><%= @snippet.description %></p>
 
-      <br>
+      <hr>
 
       <% if !!session[:user_id] %>
         <!-- History -->
@@ -25,7 +25,7 @@
           </tr>
           <% @history.each_with_index do |attempt, i| %>
             <tr>
-              <td><%= attempt.score %>wpm</td>
+              <td><%= attempt.score %></td>
               <td><%= @time_played[i] %></td>
             </tr>
           <% end %>
@@ -44,7 +44,7 @@
           <tr>
             <td><%= i+1 %></td>
             <td><a href="/users/<%= attempt.user.id %>"><%= attempt.user.username %></a></td>
-            <td><%= attempt.score %>wpm</td>
+            <td><%= attempt.score %></td>
           </tr>
         <% end %>
       </table>
@@ -87,10 +87,7 @@
 
     <section class="footer">
       <div class="timer">
-        <p>Timer: <span>0:00</span></p>
-      </div>
-      <div class="proglang">
-        <p><%= @snippet.language %></p>
+        <p><b>Timer: <span>0:00</span></b></p>
       </div>
     </section>
   </div>
