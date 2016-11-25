@@ -55,5 +55,5 @@ User.create({
   name: "kings",
   email: "kings@ga.co",
   username: "kings",
-  password_digest: "kings"
+  password_digest: "tabletennis"
   })
