@@ -81,6 +81,11 @@ Details are in the '/wireframes' folder
 * Working in a team environment requires good co-ordination and understanding of everyone's tasks for the project to be built efficiently.
 * Trello was used to organize all the features that needed to be implemented and members assigned themselves to the tasks.
 
+### Pedro Araujo
+* Deal with CSS alignment and position of multiple items
+* Create a feature to show flash messages for successful and unsuccessful operations.
+* Create a password confirmation feature
+
 ## Future works
 1. Using a library for code formatting, color and highlighting rather than just grey text. Codemirror, Aceeditor
 1. Improving general design, themes, colors
