@@ -40,7 +40,7 @@ div.snippets-show-wrapper {
 
   section.header {
     background-color: rgba(150,150,150,.1);
-    width: calc(100vw - 200px);
+    width: calc(100% - 200px);
     height: 35px;
     padding: 5px;
     border-bottom: 1px solid black;
@@ -48,7 +48,7 @@ div.snippets-show-wrapper {
   }
 
   section.snippet {
-    width: calc(100vw - 200px);
+    width: calc(100% - 200px);
     /*height = 100vh - footer - header*/
     height: calc(100% - 50px - 35px);
     overflow: scroll;
