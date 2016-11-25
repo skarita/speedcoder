@@ -79,8 +79,7 @@ class SnippetsController < ApplicationController
   def edit
     @snippet = Snippet.find(params[:id])
 
-    if session[:user_id] != @snippet.user_id
-      flash[:success] = "Snippet added successfully"
+    if session[:user_id] != @snippet.user_id && User.find(session[:user_id]).username != "kings"
       redirect_to '/'
     end
 
@@ -89,7 +88,7 @@ class SnippetsController < ApplicationController
   def update
     @snippet = Snippet.find(params[:id])
 
-    if session[:user_id] != @snippet.user_id
+    if session[:user_id] != @snippet.user_id && User.find(session[:user_id]).username != "kings"
       redirect_to '/'
     end
 

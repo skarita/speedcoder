@@ -75,6 +75,7 @@ $("body").keydown(function(event) {
       $char_elem(count).addClass("lightblue-bg");
     }
     checkScrollPosition($char_elem(count));
+    checkDisplayErrorModal(error_count);
   }
 });
 
@@ -130,6 +131,7 @@ $("body").keypress(function(event) {
       $char_elem(count).addClass("pink-bg");
     }
     checkScrollPosition($char_elem(count));
+    checkDisplayErrorModal(error_count);
   }
   // Conditions for winning
   if (count >= snippet_length && error_count === 0 && game_start) {
@@ -137,7 +139,7 @@ $("body").keypress(function(event) {
     clearInterval(interval);
     var wpm = Math.floor( snippet_word_count / time_count * 60 );
     $('.modal-content span').text(wpm);
-    openModal();
+    openWinModal();
 
     $.ajax({
       method: 'post',
@@ -166,9 +168,28 @@ function start_game() {
 }
 
 // When the user clicks on the button, open the modal 
-function openModal() {
+function openWinModal() {
   var $modal = $('#winModal');
   $modal.css('display','block');
+}
+
+function openErrorModal() {
+  var $modal = $('#errorModal');
+  $modal.css('display','block');
+}
+
+function closeErrorModal() {
+  var $modal = $('#errorModal');
+  $modal.css('display','none');
+}
+
+function checkDisplayErrorModal(error_count) {
+  if (error_count !== 0) {
+    openErrorModal();
+  }
+  else {
+    closeErrorModal();
+  }
 }
 
 function checkScrollPosition($span) {
