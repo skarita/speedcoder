@@ -80,14 +80,15 @@ $("body").keydown(function(event) {
 });
 
 $("body").keypress(function(event) {
-  if (count < snippet_length) {
-    if (!game_start) {
-      start_game();
-    }
-
-    var keyCode = event.keyCode;
-    var input_char = String.fromCharCode(keyCode);
-    var char = char_at(count);
+  var keyCode = event.keyCode;
+  var input_char = String.fromCharCode(keyCode);
+  var char = char_at(count);
+  // disable spacebar from scrolling down
+  if (!game_start && input_char === char) {
+    event.preventDefault();
+    start_game();
+  }
+  if (count < snippet_length && game_start) {
 
     // disable spacebar from scrolling down
     if (keyCode === 32) {
@@ -156,6 +157,7 @@ $("body").keypress(function(event) {
 });
 
 function start_game() {
+  closeStartModal();
   $('div.timer span').css('color','red');
   game_start = true;
   interval = setInterval(function() {
@@ -180,6 +182,11 @@ function openErrorModal() {
 
 function closeErrorModal() {
   var $modal = $('#errorModal');
+  $modal.css('display','none');
+}
+
+function closeStartModal() {
+  var $modal = $('#startModal');
   $modal.css('display','none');
 }
 
