@@ -59,7 +59,7 @@
       <div class="snippet-body"><% @array.each do |char| %><span><% if char == "\n" %>&nbsp;<br><% elsif char == " " %>&nbsp;<% else %><%= char %><% end %></span><% end %></div>
       <div style="clear: both;"></div>
 
-      <!-- The Modal -->
+      <!-- Win Modal -->
       <div id="winModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
@@ -74,13 +74,18 @@
 
       </div>
 
-      <!-- The Modal -->
+      <!-- Error Modal -->
       <div id="errorModal" class="modal">
-        <!-- Modal content -->
         <div class="modal-content">
           <p>Error. Press backspace key.</p>
         </div>
+      </div>
 
+      <!-- Start Modal -->
+      <div id="startModal" class="modal">
+        <div class="modal-content">
+          <p>Press first key to start.</p>
+        </div>
       </div>
 
     </section>
