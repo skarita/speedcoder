@@ -226,6 +226,6 @@ function checkScrollPosition($span) {
 }
 
 $('.snippet').scroll(function(event) {
-  $('#winModal').css('top', $('.snippet').scrollTop());
-  $('#winModal').css('left', $('.snippet').scrollLeft());
+  $('.modal').css('top', $('.snippet').scrollTop());
+  $('.modal').css('left', $('.snippet').scrollLeft());
 });
