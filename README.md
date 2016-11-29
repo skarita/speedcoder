@@ -11,7 +11,7 @@ HTML, CSS, SCSS, Bootstrap, Javascript, jQuery, Ruby on Rails, ActiveRecord, BCr
 * [ppteixeira](https://github.com/ppteixeira)
 
 ---
-*-- 24 November 2016 --*
+*-- 25 November 2016 --*
 
 ## Goal
 The goal of this project is to build a website that enables users to practice typing, record their performance, and rank themselves on a leaderboard. We took up the challenge in working on the project in a small team of four to build an API and a front end that consumes it. We aimed to use the Agile development technique to define requirements and tasks, and facilitate the planning process throughout the project.
