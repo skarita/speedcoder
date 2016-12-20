@@ -52,6 +52,7 @@ function next_char_count(count) {
 
 
 $("body").keydown(function(event) {
+  console.log("keydown " + event.keyCode);
   // disable tab key
   if (event.keyCode === 9) {
     event.preventDefault();
@@ -80,11 +81,17 @@ $("body").keydown(function(event) {
 });
 
 $("body").keypress(function(event) {
+
   var keyCode = event.keyCode;
   var input_char = String.fromCharCode(keyCode);
   var char = char_at(count);
+
+  console.log("keypress " + event.keyCode);
+  console.log("keypress char " + input_char);
+  console.log("char " + char);
+
   // disable spacebar from scrolling down
-  if (!game_start && input_char === char) {
+  if (!game_start && (input_char === char || input_char === entities.decode(char)) ) {
     event.preventDefault();
     start_game();
   }
